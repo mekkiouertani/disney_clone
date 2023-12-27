@@ -73,7 +73,6 @@ export default {
     justify-content: space-between;
 
     .box-logo {
-        height: 50px;
         width: 100px;
         margin-right: 50px;
 
