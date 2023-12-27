@@ -1,11 +1,13 @@
 <template>
-    <HeroSlider />
-    <LogosCard />
-    <HorizontalCard />
-    <HorizontalCard />
-    <PosterCard />
-    <HorizontalCard />
-    <HorizontalCard />
+    <section id="card-wrapper">
+        <HeroSlider />
+        <LogosCard />
+        <HorizontalCard />
+        <HorizontalCard />
+        <PosterCard />
+        <HorizontalCard />
+        <HorizontalCard />
+    </section>
 </template>
 
 <script>
@@ -27,4 +29,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#card-wrapper {
+    margin-top: 100px;
+}
+</style>
