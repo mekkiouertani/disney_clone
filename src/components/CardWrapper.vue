@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import HeroSlider from './CardsComponent/HeroSlider.vue';
-import LogosCard from './CardsComponent/LogosCard.vue';
-import HorizontalCard from './CardsComponent/HorizontalCard.vue';
-import PosterCard from './CardsComponent/PosterCard.vue';
+import HeroSlider from './DynamicComponent/HeroSlider.vue';
+import LogosCard from './DynamicComponent/LogosCard.vue';
+import HorizontalCard from './DynamicComponent/HorizontalCard.vue';
+import PosterCard from './DynamicComponent/PosterCard.vue';
 export default {
     name: "CardWrapper",
     data() {
