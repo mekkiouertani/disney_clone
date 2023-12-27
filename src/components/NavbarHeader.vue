@@ -44,6 +44,7 @@
 
 <script>
 export default {
+    name: "NavbarHeader",
     data() {
         return {
             showSearch: true,
