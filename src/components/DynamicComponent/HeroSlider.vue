@@ -41,7 +41,8 @@ export default {
 @use '../../../src/assets/style/partials/variables' as *;
 
 #hero-slider {
-    height: 300px;
+    //mi sono permesso di fare questa modifica per far adatttare le query alla pagina, eventualmente si puo ripristinare 
+    //height: 300px;
 
     .carousel-slide {
         width: 100%;
