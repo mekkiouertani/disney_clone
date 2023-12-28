@@ -68,4 +68,16 @@ export default {
         filter: invert(1);
     }
 }
+
+@media screen and (max-width: 1140px) {
+    .pagination {
+        right: 100px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .pagination {
+        right: 50px !important;
+    }
+}
 </style>
