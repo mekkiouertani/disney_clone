@@ -10,7 +10,7 @@
                 <ul class="d-flex list-unstyled fw-bold mt-4 " v-if="showSearch">
                     <li class="mx-3 cp">
                         <i class="fa-solid fa-house px-2"></i>
-                        <span class="d-none d-lg-inline">HOME</span>
+                        <span class="d-none d-lg-inline bor">HOME</span>
                     </li>
                     <li class="mx-3 cp">
                         <i class="fa-solid fa-magnifying-glass px-2" @click="toggleSearch"></i>
@@ -18,11 +18,11 @@
                     </li>
                     <li class="mx-3 cp">
                         <i class="fa-solid fa-plus px-2"></i>
-                        <span class="d-none d-lg-inline">LA TUA LISTA</span>
+                        <span class="d-none d-lg-inline bor">LA TUA LISTA</span>
                     </li>
                     <li class="mx-3 cp">
                         <i class="fa-solid fa-star px-2"></i>
-                        <span class="d-none d-lg-inline">ORIGINALS</span>
+                        <span class="d-none d-lg-inline bor">ORIGINALS</span>
                     </li>
                 </ul>
                 <!-- SEARCHBAR SMALL QUERY -->
@@ -144,6 +144,19 @@ export default {
         input {
             width: 100% !important;
             min-width: 350px !important;
+        }
+    }
+
+    li {
+        &:hover {
+            transform: scale(1.2);
+
+        }
+
+        .bor {
+            &:hover {
+                border-bottom: 1px solid white;
+            }
         }
     }
 
