@@ -2,7 +2,7 @@
     <section id="card-wrapper">
         <HeroSlider />
         <LogosCard />
-        <HorizontalCard />
+        <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr"/>
         <HorizontalCard />
         <PosterCard />
         <HorizontalCard />
