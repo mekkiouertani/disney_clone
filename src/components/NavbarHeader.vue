@@ -148,6 +148,8 @@ export default {
     }
 
     li {
+        transition: 0.5s;
+
         &:hover {
             transform: scale(1.2);
 
@@ -160,6 +162,13 @@ export default {
         }
     }
 
-    @media screen and (max-width: 1140px) {}
+    @media screen and (max-width: 1140px) {
+        li {
+            &:hover {
+                border-bottom: 2px solid white;
+
+            }
+        }
+    }
 }
 </style>
