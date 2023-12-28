@@ -49,7 +49,7 @@ export default {
         max-height: 600px;
         border-radius: 10px;
         overflow: hidden;
-        margin: 0 20px;
+        margin: 0 1%;
         box-shadow: $shadow-box;
 
         img {
