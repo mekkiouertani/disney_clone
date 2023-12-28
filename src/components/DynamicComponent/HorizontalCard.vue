@@ -5,7 +5,7 @@
         
             
 
-            <Carousel :items-to-show="itemsToShow"  :wrapAround="true" :transition="500" pauseAutoplayOnHover="true" id="main-slide">
+            <Carousel :items-to-show="itemsToShow"  :wrapAround="false" :transition="500" pauseAutoplayOnHover="true" id="main-slide">
               
                 <Slide v-for="slide in  resultList " :key="slide">
                     <div class="carousel-slide  cp">
@@ -46,10 +46,12 @@ export default {
     methods: {
         updateSettingsBasedOnMediaQuery() {
         // Check the media query status and update settings accordingly
-            if (window.matchMedia('(min-width: 700px)').matches) {
+            if (window.matchMedia('(min-width: 1024px)').matches) {
+                this.itemsToShow = 6;
+
+            } else if (window.matchMedia('(min-width: 700px)').matches) {
                 this.itemsToShow = 3.8;
-            } else if (window.matchMedia('(min-width: 1024px)').matches) {
-                this.itemsToShow = 5.4;
+
             } else {
                 // Default settings for smaller screens
                 this.itemsToShow = 2.7;
