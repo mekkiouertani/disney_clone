@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav class="nav">
+        <nav class="nav" :class="{ 'nav': true, 'scrolled': isScrolled }">
             <section id="left" class="d-flex align-items-center ">
                 <!-- LOGO -->
                 <div class="box-logo cp brand-logo" v-if="showSearch">
@@ -48,18 +48,35 @@ export default {
     data() {
         return {
             showSearch: true,
+            isScrolled: false,
         };
     },
     methods: {
         toggleSearch() {
             this.showSearch = !this.showSearch;
-        }
-    }
+        },
+        handleScroll() {
+            const scrollPosition = window.scrollY;
+            this.isScrolled = scrollPosition > 50; // Aggiorna lo stato in base allo scrolling
+        },
+    },
+    mounted() {
+        window.addEventListener("scroll", this.handleScroll);
+    },
 };
 </script>
 
 <style lang="scss" scoped>
 .nav {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 29%, rgba(112, 198, 183, 0) 97%, rgba(118, 208, 192, 0) 97%);
+    transition: 1s;
+
+    &.scrolled {
+        background: rgb(0, 0, 0);
+        transition: 0.5s ease-in; // Effetto di transizione
+    }
+
     width: 100%;
     height: 80px;
     position: fixed;
