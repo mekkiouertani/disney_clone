@@ -20,6 +20,7 @@ export const store = reactive({
   WeekmovieArr: [],
   PopularmovieArr: [],
   CreditsArr: [],
+  IdInfoCard: [],
 
   imgOriginalPath: "https://image.tmdb.org/t/p/original",
   imgBackdropPath: "https://image.tmdb.org/t/p/w342",
