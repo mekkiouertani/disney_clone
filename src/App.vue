@@ -1,6 +1,7 @@
 <template>
   <NavbarHeader />
-  <CardWrapper />
+  <ShowCard v-if="store.showCard" />
+  <CardWrapper v-if="!store.showCard" />
 </template>
 
 <script>
@@ -9,16 +10,23 @@ import CardWrapper from "./components/CardWrapper.vue";
 
 import { store } from './data/store.js'
 import axios from 'axios'
+import ShowCard from "./components/Pages/ShowCard.vue";
 
 export default {
   name: "App",
   data() {
-    return {store};
+    return { store };
   },
-  methods:{
+  methods: {
+    checkInfoPopulated() {
+      if (store.IdInfoCard.id !== null) {
+        return true;
+      }
+      return false;
+    },
     getPopularOfWeek() {
       axios
-        .get( store.BaseAPI + store.endPoint.popularOfWeek , { params: store.params })
+        .get(store.BaseAPI + store.endPoint.popularOfWeek, { params: store.params })
         .then((response) => {
           //populate the array  store.WeekmovieArr  for request
           store.WeekmovieArr = response.data.results;
@@ -28,7 +36,7 @@ export default {
     },
     getPopularMovie() {
       axios
-        .get( store.BaseAPI + store.endPoint.popularMovie , { params: store.params })
+        .get(store.BaseAPI + store.endPoint.popularMovie, { params: store.params })
         .then((response) => {
           //populate the array  store.PopularmovieArr  for request
           store.PopularmovieArr = response.data.results;
@@ -38,7 +46,7 @@ export default {
     },
     getCredits() {
       axios
-        .get( store.BaseAPI + store.endPoint.creditsTV+store.movieID+store.endPoint.endCreditsTV , { params: store.params })
+        .get(store.BaseAPI + store.endPoint.creditsTV + store.movieID + store.endPoint.endCreditsTV, { params: store.params })
         .then((response) => {
           //populate the array  store.CreditsArr  for request
           store.CreditsArr = response.data.crew;
@@ -47,13 +55,13 @@ export default {
         )
     },
   },
-  created(){
+  created() {
     this.getPopularOfWeek(),
-    this.getCredits(),
-    this.getPopularMovie();
+      this.getCredits(),
+      this.getPopularMovie();
   },
-  
-  components: { NavbarHeader, CardWrapper },
+
+  components: { NavbarHeader, CardWrapper, ShowCard },
 };
 </script>
 
