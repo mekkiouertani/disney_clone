@@ -70,15 +70,13 @@ export default {
 
 
 .logos-card {
-    height: 150px;
-    max-height: 100px;
     border-radius: 5px;
     position: relative;
     box-shadow: $shadow-box;
     background-color: $logos-card;
     cursor: pointer;
     transition: 0.5s ease-in-out;
-
+    aspect-ratio: 16/9;
 
 
     &:hover {
@@ -110,14 +108,14 @@ export default {
 
 #disney-card-logos {
     &:hover {
-        background-color: red;
+        background-color: $secondary-blue;
         background-image: url('../../images/logos-card/gif/disney-gif.gif');
     }
 }
 
 #pixar-card-logos {
     &:hover {
-        background-color: red;
+        background-color: #B9CBE2;
         background-image: url('../../images/logos-card/gif/pixar-gif.gif');
     }
 }
@@ -131,46 +129,22 @@ export default {
 
 #starwars-card-logos {
     &:hover {
-        background-color: red;
+        background-color: black;
         background-image: url('../../images/logos-card/gif/starwars-gif.gif');
     }
 }
 
 #national-card-logos {
     &:hover {
-        background-color: red;
+        background-color: #FFD800;
         background-image: url('../../images/logos-card/gif/national-gif.gif');
     }
 }
 
 #star-card-logos {
     &:hover {
-        background-color: red;
+        background-color: #019ADD;
         background-image: url('../../images/logos-card/gif/star-gif.gif');
-    }
-}
-
-@media screen and (min-width: 600px) {
-    .logos-card {
-        max-height: 200px;
-    }
-}
-
-@media screen and (min-width: 900px) {
-    .logos-card {
-        max-height: 100px;
-    }
-}
-
-@media screen and (min-width: 1300px) {
-    .logos-card {
-        max-height: 150px;
-    }
-}
-
-@media screen and (min-width: 1500px) {
-    .logos-card {
-        max-height: 250px;
     }
 }
 </style>

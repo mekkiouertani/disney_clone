@@ -86,7 +86,7 @@ export default {
 
     .carousel-slide {
         width: 100%;
-        max-height: 600px;
+        max-height: 400px;
         border-radius: 10px;
         overflow: hidden;
         margin: 0 1%;
