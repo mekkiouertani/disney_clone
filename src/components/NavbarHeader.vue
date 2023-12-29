@@ -14,7 +14,9 @@
                     </li>
                     <li class="mx-3 cp">
                         <i class="fa-solid fa-magnifying-glass px-2" @click="toggleSearch"></i>
-                        <span class="d-none d-lg-inline"><input type="text" placeholder="CERCA"></span>
+                        <span class="d-none d-lg-inline">
+                            <input type="text" placeholder="CERCA"  v-model="textInput" @keyup.enter="searchResults">
+                        </span>
                     </li>
                     <li class="mx-3 cp">
                         <i class="fa-solid fa-plus px-2"></i>
@@ -28,7 +30,7 @@
                 <!-- SEARCHBAR SMALL QUERY -->
                 <div id="small-input" class="mx-3 cp mt-2 fs-4 w-100 d-flex align-items-center " v-if="!showSearch">
                     <i class="fa-solid fa-arrow-left" @click="toggleSearch"></i>
-                    <input type="text" placeholder="CERCA ..." class="w-50 mx-5">
+                    <input type="text" placeholder="CERCA ..." class="w-50 mx-5" v-model="textInput" @keyup.enter="searchResults">
                 </div>
             </section>
             <!-- PROFILE USER -->
@@ -43,15 +45,51 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { store } from '../data/store.js';
+
 export default {
     name: "NavbarHeader",
     data() {
         return {
             showSearch: true,
             isScrolled: false,
+            textInput: '',
+            store, 
         };
     },
     methods: {
+        /**
+         * searching results of the query in movie db and populating the array
+         */
+        searchResults(){
+            if(this.textInput.replace(' ', '') !== ''){
+                this.store.params.query = this.textInput;
+                
+                let url = this.store.BaseAPI + this.store.endPoint.searchSeries;
+                const response = axios
+                    .get(url, {params: store.params})
+                    .then((response) =>{
+                        if( response.data.results.length > 0 ){
+                            store.foundSeries = response.data.results;
+                        }
+                        //stampo i risultati trovati
+                        console.log(store.foundSeries);
+                    })
+                    //searchmovies
+                    url = this.store.BaseAPI + this.store.endPoint.searchMovies;
+                    const res = axios
+                    .get(url, {params: store.params})
+                    .then((response) =>{
+                        if( response.data.results.length > 0 ){
+                            store.foundMovies = response.data.results;
+                            this.store.params.query = '';
+                        }
+                        //stampo i risultati trovati
+                        console.log(store.foundMovies);
+                    })
+            }
+        },
         toggleSearch() {
             this.showSearch = !this.showSearch;
         },
