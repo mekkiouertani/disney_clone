@@ -6,6 +6,7 @@ export const store = reactive({
   endPoint: {
     popularMovie: "movie/popular",
     popularOfWeek: "trending/tv/week",
+    creditsMovie: "movie/",
     creditsTV: "tv/",
     endCreditsTV: "/credits",
     searchSeries: "search/tv",

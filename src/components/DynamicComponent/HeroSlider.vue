@@ -49,6 +49,8 @@ export default {
                     // Se è vuoto, effettua la seconda chiamata
 
                     //}
+                    this.getCastById(this.store.IdInfoCard.id, true);
+                    
                 })
                 .catch((error) => {
                     //console.error("Errore nella richiesta del film:", error);
@@ -60,6 +62,7 @@ export default {
                             console.log('series');
                             console.log(this.store.IdInfoCard);
 
+                            this.getCastById(this.store.IdInfoCard.id, false);
 
                         })
                         .catch((tvError) => {
@@ -70,6 +73,22 @@ export default {
                     this.store.showCard = true;
                 })
 
+        },
+        /**
+         * dato un movie o una seri, fa unaa chaimata axios e prende gli attori che hanno partecipato a tale filem e li 
+         * carica nello store 
+         * @param {int} id 
+         * @param {boolean} ismovie 
+         */
+        getCastById(id, ismovie){
+            let midquery = ismovie ? store.endPoint.creditsMovie : store.endPoint.creditsTV;
+            let url = store.BaseAPI + midquery + id + '/credits'
+            axios
+                .get(url, {params: this.store.params})
+                .then((res)=>{
+                    this.store.IdInfoCard.cast = res.data.cast;
+                })
+                
         }
     },
 }
