@@ -46,19 +46,19 @@ export default {
                     snapAlign: 'center',
                 },
                 1024: {
-                    itemsToShow: 3.8,
+                    itemsToShow: 5.5,
                     snapAlign: 'center',
                 },
                 768: {
-                    itemsToShow: 2.7,
+                    itemsToShow: 3.3,
                     snapAlign: 'center',
                 },
                 500: {
-                    itemsToShow: 2,
+                    itemsToShow: 3.3,
                     snapAlign: 'center',
                 },
                 400: {
-                    itemsToShow: 1.6,
+                    itemsToShow: 1.05,
                     snapAlign: 'center',
                 },
             },
@@ -103,10 +103,44 @@ export default {
 
 
 }
+@media screen and (min-width: 1300px) {
+    .carousel-slide{
+        min-width: 90% !important;
+        margin: 50px;
+    }
+}
 
 @media screen and (min-width: 1200px) {
     .carousel-slide {
         min-width: 90% !important;
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .carousel-slide {
+        min-width: 90% !important;
+        margin: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .carousel-slide {
+        min-width: 90% !important;
+        margin: 7px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .carousel-slide {
+        min-width: 90% !important;
+        margin: 7px;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .carousel-slide {
+        min-width: 90% !important;
+        margin: 7px;
     }
 }
 </style>
