@@ -15,7 +15,7 @@
                     <li class="mx-3 cp">
                         <i class="fa-solid fa-magnifying-glass px-2" @click="toggleSearch"></i>
                         <span class="d-none d-lg-inline">
-                            <input type="text" placeholder="CERCA"  v-model="textInput" @keyup.enter="searchResults">
+                            <input type="text" placeholder="CERCA" v-model="textInput" @keyup.enter="searchResults">
                         </span>
                     </li>
                     <li class="mx-3 cp">
@@ -30,7 +30,8 @@
                 <!-- SEARCHBAR SMALL QUERY -->
                 <div id="small-input" class="mx-3 cp mt-2 fs-4 w-100 d-flex align-items-center " v-if="!showSearch">
                     <i class="fa-solid fa-arrow-left" @click="toggleSearch"></i>
-                    <input type="text" placeholder="CERCA ..." class="w-50 mx-5" v-model="textInput" @keyup.enter="searchResults">
+                    <input type="text" placeholder="CERCA ..." class="w-50 mx-5" v-model="textInput"
+                        @keyup.enter="searchResults">
                 </div>
             </section>
             <!-- PROFILE USER -->
@@ -55,33 +56,33 @@ export default {
             showSearch: true,
             isScrolled: false,
             textInput: '',
-            store, 
+            store,
         };
     },
     methods: {
         /**
          * searching results of the query in movie db and populating the array
          */
-        searchResults(){
-            if(this.textInput.replace(' ', '') !== ''){
+        searchResults() {
+            if (this.textInput.replace(' ', '') !== '') {
                 this.store.params.query = this.textInput;
-                
+
                 let url = this.store.BaseAPI + this.store.endPoint.searchSeries;
                 const response = axios
-                    .get(url, {params: store.params})
-                    .then((response) =>{
-                        if( response.data.results.length > 0 ){
+                    .get(url, { params: store.params })
+                    .then((response) => {
+                        if (response.data.results.length > 0) {
                             store.foundSeries = response.data.results;
                         }
                         //stampo i risultati trovati
                         console.log(store.foundSeries);
                     })
-                    //searchmovies
-                    url = this.store.BaseAPI + this.store.endPoint.searchMovies;
-                    const res = axios
-                    .get(url, {params: store.params})
-                    .then((response) =>{
-                        if( response.data.results.length > 0 ){
+                //searchmovies
+                url = this.store.BaseAPI + this.store.endPoint.searchMovies;
+                const res = axios
+                    .get(url, { params: store.params })
+                    .then((response) => {
+                        if (response.data.results.length > 0) {
                             store.foundMovies = response.data.results;
                             this.store.params.query = '';
                         }
@@ -105,13 +106,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../../src/assets/style/partials/variables' as *;
+
 .nav {
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 29%, rgba(112, 198, 183, 0) 97%, rgba(118, 208, 192, 0) 97%);
     transition: 1s;
 
     &.scrolled {
-        background: rgb(0, 0, 0);
+        background: $black-color;
         transition: 0.5s ease-in; // Effetto di transizione
     }
 

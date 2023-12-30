@@ -1,19 +1,16 @@
 <template>
-    <div class="container-fluid mt-5">
-        <div class="text-white small-section-title ">{{ title }}</div>
+    <div class="mt-5">
+        <h4 class="container-fluid text-white small-section-title mb-3">{{ title }}</h4>
         <section id="card-slider" class="">
-        
-            
-
-            <Carousel :items-to-show="itemsToShow"  :wrapAround="false" :transition="500" pauseAutoplayOnHover="true" id="main-slide">
-              
-                <Slide v-for="slide in  resultList " :key="slide">
-                    <div class="carousel-slide  cp">
-                        <div class="box-image"><img :src="'https://image.tmdb.org/t/p/w300' + slide.backdrop_path" :alt="slide.name"></div>
+            <Carousel v-bind="settings" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
+                :breakpoints="breakpoints" id="main-slide">
+                <Slide v-for="slide in  resultList " :key="slide" class="slide">
+                    <div class="carousel-slide cp">
+                        <div class="box-image">
+                            <img :src="'https://image.tmdb.org/t/p/w300' + slide.backdrop_path" :alt="slide.name">
+                        </div>
                     </div>
                 </Slide>
-                
-                
             </Carousel>
         </section>
     </div>
@@ -26,7 +23,7 @@ import 'vue3-carousel/dist/carousel.css';
 
 export default {
     name: "HorizontalCard",
-    props:{
+    props: {
         title: String,
         resultList: Object
     },
@@ -37,70 +34,79 @@ export default {
         Pagination
     },
     data() {
-        
         return {
             store,
-            itemsToShow: 5.4
+            settings: {
+                itemsToShow: 1,
+                snapAlign: 'center',
+            },
+            breakpoints: {
+                1660: {
+                    itemsToShow: 5.5,
+                    snapAlign: 'center',
+                },
+                1024: {
+                    itemsToShow: 3.8,
+                    snapAlign: 'center',
+                },
+                768: {
+                    itemsToShow: 2.7,
+                    snapAlign: 'center',
+                },
+                500: {
+                    itemsToShow: 2,
+                    snapAlign: 'center',
+                },
+                400: {
+                    itemsToShow: 1.6,
+                    snapAlign: 'center',
+                },
+            },
         }
     },
-    methods: {
-        updateSettingsBasedOnMediaQuery() {
-        // Check the media query status and update settings accordingly
-            if (window.matchMedia('(min-width: 1024px)').matches) {
-                this.itemsToShow = 6;
-
-            } else if (window.matchMedia('(min-width: 700px)').matches) {
-                this.itemsToShow = 3.8;
-
-            } else {
-                // Default settings for smaller screens
-                this.itemsToShow = 2.7;
-            }
-        }
-    },
-    created() {
-        this.updateSettingsBasedOnMediaQuery();
-    }
-  
-    
 }
-    
+
 
 </script>
 
 <style lang="scss" scoped>
 @use '../../../src/assets/style/partials/variables' as *;
-#card-slider{
-    .small-section-title{
+
+#card-slider {
+    .small-section-title {
         margin-bottom: 40px;
         padding-left: 200px;
         font-size: 2em;
     }
-    
+
+    .slide {
+        margin-right: 0 19% !important;
+
+    }
+
     .carousel-slide {
-        width: 100%;
-        max-height: 600px;
+        min-width: 200px;
         border-radius: 10px;
         overflow: hidden;
-        margin: 0 20px;
+        // margin: 0 0.4% 0 0.4%;
         box-shadow: $shadow-box;
+        aspect-ratio: 16/9;
+        max-height: 300px !important;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top;
         }
 
     }
 
-    .pagination {
-        position: absolute;
-        z-index: 5;
-        bottom: 30px;
-        right: 170px;
-        filter: invert(1);
-    }
+
 }
 
+@media screen and (min-width: 1200px) {
+    .carousel-slide {
+        min-width: 90% !important;
+    }
+}
 </style>

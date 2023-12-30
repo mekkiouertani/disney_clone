@@ -1,9 +1,8 @@
 <template>
     <section id="hero-slider">
-
         <Carousel :autoplay="4000" :items-to-show="1.1" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
             id="main-slide">
-            <Slide v-for="slide in  store.WeekmovieArr " :key="slide" id="slide">
+            <Slide v-for="slide in  store.WeekmovieArr " :key="slide" class="slide">
                 <div class="carousel-slide  cp" @click="getCardId(slide.id)">
                     <div class="box-image"><img :src="store.imgOriginalPath + slide.backdrop_path" :alt="slide.name"></div>
                 </div>
@@ -83,13 +82,14 @@ export default {
 
 #hero-slider {
 
+    .slide {}
 
     .carousel-slide {
-        width: 100%;
+        width: 98%;
         max-height: 400px;
         border-radius: 10px;
         overflow: hidden;
-        margin: 0 1%;
+        margin: 0 0.4% 0 0.4%;
         box-shadow: $shadow-box;
 
         img {
