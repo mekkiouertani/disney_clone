@@ -1,6 +1,6 @@
 <template>
     <div class="mt-5">
-        <h4 class="container-fluid text-white small-section-title mb-3">{{ title }}</h4>
+        <h4 class="container-fluid text-white small-section-title mb-2">{{ title }}</h4>
         <section id="card-slider" class="">
             <Carousel v-bind="settings" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
                 :breakpoints="breakpoints" id="main-slide" @click="store.showCard = true">
@@ -114,6 +114,7 @@ export default {
 
     .slide {
         margin-right: 0 19% !important;
+        height: 200px;
 
     }
 
@@ -125,11 +126,18 @@ export default {
         box-shadow: $shadow-box;
         aspect-ratio: 16/9;
         max-height: 300px !important;
+        transition: 0.5s ease-in-out;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        &:hover {
+            padding: px;
+            border: 5px solid white;
+            transform: scale(1.05);
         }
 
     }
