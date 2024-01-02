@@ -2,7 +2,7 @@
     <section id="show-card">
         <!-- IMG BACKGROUND -->
         <div class="box-hero-image position-relative">
-            <img class="images" :src="store.imgOriginalPath + store.IdInfoCard.backdrop_path"
+            <img class="images" :src="getImage"
                 :alt="store.IdInfoCard.name ? store.IdInfoCard.title : store.IdInfoCard.name">
             <div class="bg-shades position-absolute top-0 "></div>
         </div>
@@ -20,7 +20,7 @@
         </section>
         <!-- IMG BACKGROUND BOTTOM -->
         <div class="box-hero-image bottom position-relative">
-            <img class="images" :src="store.imgOriginalPath + store.IdInfoCard.backdrop_path"
+            <img class="images" :src="getImage"
                 :alt="store.IdInfoCard.name ? store.IdInfoCard.title : store.IdInfoCard.name">
             <div class="bg-shades position-absolute top-0 "></div>
         </div>
@@ -49,6 +49,9 @@ export default {
     mounted() {
     },
     computed: {
+        getImage() {
+            return this.store.imgOriginalPath + this.store.IdInfoCard.backdrop_path ? this.store.imgOriginalPath + this.store.SlideInfo.backdrop_path : this.store.imgOriginalPath + this.store.IdInfoCard.backdrop_path
+        },
         getFlagApi() {
             let apiFlag = this.store.IdInfoCard.original_language.toLocaleUpperCase().substring(0, 2);
             if (apiFlag === "EN") {
@@ -83,7 +86,8 @@ export default {
 
 
     .box-hero-image {
-        height: 70vh;
+        height: 40vh;
+
     }
 
     #top-info-sections {
@@ -116,7 +120,7 @@ export default {
     }
 
     .overview {
-        max-height: 280px;
+        max-height: 240px;
         overflow-y: auto;
     }
 
@@ -133,6 +137,15 @@ export default {
 
     #horizontal-card {
         top: 62.5%;
+
+    }
+
+    @media screen and (min-width:1140px) {
+        .box-hero-image {
+            height: 70vh;
+
+        }
+
 
     }
 }

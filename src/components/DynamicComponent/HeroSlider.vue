@@ -1,7 +1,7 @@
 <template>
     <section id="hero-slider">
         <Carousel :autoplay="4000" :items-to-show="1.1" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
-            id="main-slide">
+            id="main-slide" @click="store.showCard = true">
             <Slide v-for="slide in  store.WeekmovieArr " :key="slide" class="slide" @click="getInfoSlide(slide)">
                 <div class="carousel-slide  cp" @click="getCardId(slide.id)">
                     <div class="box-image"><img :src="store.imgOriginalPath + slide.backdrop_path" :alt="slide.name"></div>
@@ -70,7 +70,7 @@ export default {
                         });
                 })
                 .finally(() => {
-                    this.store.showCard = true;
+                    // this.store.showCard = true;
                 })
 
         },
@@ -103,8 +103,6 @@ export default {
 @use '../../../src/assets/style/partials/variables' as *;
 
 #hero-slider {
-
-    .slide {}
 
     .carousel-slide {
         width: 98%;
