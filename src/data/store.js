@@ -29,6 +29,8 @@ export const store = reactive({
   IdInfoCard: [],
   SlideInfo: [], //passiamo l'oggetto di IdInfoCard al componente HeroSlider
   showCard: false,
+  showCardWrapper: true,
+  currentFlag: "",
 
   imgOriginalPath: "https://image.tmdb.org/t/p/original",
   imgBackdropPath: "https://image.tmdb.org/t/p/w342",

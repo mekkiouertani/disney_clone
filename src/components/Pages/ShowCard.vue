@@ -11,10 +11,10 @@
             <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2" @click="store.showCard = false"></i>
             <h1 class="mt-5">{{ store.SlideInfo.name || store.SlideInfo.title }}</h1>
             <h6>| {{ store.IdInfoCard.genres[0].name }}</h6>
-            <img id="flag" :src="getFlagApi" :alt="this.store.IdInfoCard.original_language">
+            <img id="flag" :src="getFlagApi" :alt="store.IdInfoCard.original_language">
             <div id="star">
                 <i v-for="n in 5" :key="n" class="fa-star" :class="n <= getRate ? 'fa-solid' : 'fa-regular'"></i>
-                <span> su {{ this.store.SlideInfo.vote_count }} voti.</span>
+                <span> su {{ store.SlideInfo.vote_count }} voti.</span>
             </div>
             <p class="mt-3 fs-5 w-50 overview">{{ store.SlideInfo.overview }}</p>
         </section>
@@ -66,8 +66,7 @@ export default {
                 apiFlag = "CL";
             }
             console.log(`hello`, apiFlag);
-            return (this.currentFlag =
-                "https://flagsapi.com/" + apiFlag + "/flat/64.png");
+            return "https://flagsapi.com/" + apiFlag + "/flat/64.png";
         },
         getRate: function () {
             return Math.ceil(this.store.IdInfoCard.vote_average / 2);
