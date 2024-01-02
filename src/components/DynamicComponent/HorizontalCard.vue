@@ -38,7 +38,7 @@ export default {
             store,
             settings: {
                 itemsToShow: 1,
-                snapAlign: 'center',
+                snapAlign: 'left',
             },
             breakpoints: {
                 1660: {
@@ -103,8 +103,9 @@ export default {
 
 
 }
+
 @media screen and (min-width: 1300px) {
-    .carousel-slide{
+    .carousel-slide {
         min-width: 90% !important;
         margin: 50px;
     }
@@ -116,6 +117,7 @@ export default {
         margin: 20px;
     }
 }
+
 @media screen and (min-width: 1024px) {
     .carousel-slide {
         min-width: 90% !important;

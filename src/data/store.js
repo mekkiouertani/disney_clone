@@ -27,6 +27,7 @@ export const store = reactive({
   PopularmovieArr: [],
   CreditsArr: [],
   IdInfoCard: [],
+  SlideInfo: [],
   showCard: false,
 
   imgOriginalPath: "https://image.tmdb.org/t/p/original",

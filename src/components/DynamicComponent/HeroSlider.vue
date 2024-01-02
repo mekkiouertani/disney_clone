@@ -2,7 +2,7 @@
     <section id="hero-slider">
         <Carousel :autoplay="4000" :items-to-show="1.1" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
             id="main-slide">
-            <Slide v-for="slide in  store.WeekmovieArr " :key="slide" class="slide">
+            <Slide v-for="slide in  store.WeekmovieArr " :key="slide" class="slide" @click="getInfoSlide(slide)">
                 <div class="carousel-slide  cp" @click="getCardId(slide.id)">
                     <div class="box-image"><img :src="store.imgOriginalPath + slide.backdrop_path" :alt="slide.name"></div>
                 </div>
@@ -50,7 +50,7 @@ export default {
 
                     //}
                     this.getCastById(this.store.IdInfoCard.id, true);
-                    
+
                 })
                 .catch((error) => {
                     //console.error("Errore nella richiesta del film:", error);
@@ -80,15 +80,18 @@ export default {
          * @param {int} id 
          * @param {boolean} ismovie 
          */
-        getCastById(id, ismovie){
+        getCastById(id, ismovie) {
             let midquery = ismovie ? store.endPoint.creditsMovie : store.endPoint.creditsTV;
             let url = store.BaseAPI + midquery + id + '/credits'
             axios
-                .get(url, {params: this.store.params})
-                .then((res)=>{
+                .get(url, { params: this.store.params })
+                .then((res) => {
                     this.store.IdInfoCard.cast = res.data.cast;
                 })
-                
+
+        },
+        getInfoSlide(slide) {
+            this.store.SlideInfo = slide;
         }
     },
 }
