@@ -27,6 +27,7 @@ export const store = reactive({
   PopularmovieArr: [],
   CreditsArr: [],
   IdInfoCard: [],
+  SlideInfo: [], //passiamo l'oggetto di IdInfoCard al componente HeroSlider
   showCard: false,
 
   imgOriginalPath: "https://image.tmdb.org/t/p/original",

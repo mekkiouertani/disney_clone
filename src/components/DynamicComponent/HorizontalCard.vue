@@ -3,10 +3,10 @@
         <h4 class="container-fluid text-white small-section-title mb-3">{{ title }}</h4>
         <section id="card-slider" class="">
             <Carousel v-bind="settings" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
-                :breakpoints="breakpoints" id="main-slide">
-                <Slide v-for="slide in  resultList " :key="slide" class="slide">
-                    <div class="carousel-slide cp">
-                        <div class="box-image">
+                :breakpoints="breakpoints" id="main-slide" @click="store.showCard = true">
+                <Slide v-for="slide in  resultList " :key="slide" class="slide" @click="getInfoSlide(slide)">
+                    <div class=" carousel-slide cp" @click="getCardId(slide.id)">
+                        <div class=" box-image ">
                             <img :src="'https://image.tmdb.org/t/p/w300' + slide.backdrop_path" :alt="slide.name">
                         </div>
                     </div>
@@ -64,6 +64,39 @@ export default {
             },
         }
     },
+    methods: {
+        getCardId(id) {
+            axios
+                .get(store.BaseAPI + "movie/" + id, { params: this.store.params })
+                .then((res) => {
+                    this.store.IdInfoCard = res.data;
+                    console.log('movie');
+                    console.log(this.store.IdInfoCard);
+                    this.getCastById(this.store.IdInfoCard.id, true);
+                })
+                .catch((error) => {
+                    axios
+                        .get(store.BaseAPI + "tv/" + id, { params: this.store.params })
+                        .then((tvRes) => {
+                            // console.log(`tv id`, tvRes.data);
+                            this.store.IdInfoCard = tvRes.data;
+                            console.log('series');
+                            console.log(this.store.IdInfoCard);
+                            this.getCastById(this.store.IdInfoCard.id, false);
+
+                        })
+                        .catch((tvError) => {
+                            console.error("Errore nella richiesta della serie TV:", tvError);
+                        });
+                })
+                .finally(() => {
+                    // this.store.showCard = true; //non funge
+                })
+        },
+        getInfoSlide(slide) {
+            this.store.SlideInfo = slide;
+        }
+    },
 }
 
 
@@ -103,8 +136,9 @@ export default {
 
 
 }
+
 @media screen and (min-width: 1300px) {
-    .carousel-slide{
+    .carousel-slide {
         min-width: 90% !important;
         margin: 50px;
     }
@@ -116,6 +150,7 @@ export default {
         margin: 20px;
     }
 }
+
 @media screen and (min-width: 1024px) {
     .carousel-slide {
         min-width: 90% !important;
