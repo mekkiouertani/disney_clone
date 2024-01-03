@@ -21,6 +21,54 @@ export default {
     return { store };
   },
   methods: {
+    getShowLogosCard() {
+      /* disney */
+      axios
+        .get(store.BaseAPI + store.endPoint.searchMovies + "?api_key=2685b6a8f123b29cd4c75c4bd228e18e&language=it-IT&query=disney")
+        .then((response) => {
+          for (let i = 0; i < response.data.results.length; i++) {
+            const el = response.data.results[i];
+            if (el.backdrop_path !== null) {
+              store.disneyMoviesArr.push(el)
+            }
+          }
+        }
+        );
+      axios
+        .get(store.BaseAPI + store.endPoint.searchSeries + "?api_key=2685b6a8f123b29cd4c75c4bd228e18e&language=it-IT&query=disney")
+        .then((response) => {
+          for (let i = 0; i < response.data.results.length; i++) {
+            const el = response.data.results[i];
+            if (el.backdrop_path !== null) {
+              store.disneySeriesArr.push(el)
+            }
+          }
+        }
+        ),
+        /* pixar */
+        axios
+          .get(store.BaseAPI + store.endPoint.searchMovies + "?api_key=2685b6a8f123b29cd4c75c4bd228e18e&language=it-IT&query=pixar")
+          .then((response) => {
+            for (let i = 0; i < response.data.results.length; i++) {
+              const el = response.data.results[i];
+              if (el.backdrop_path !== null) {
+                store.pixarMoviesArr.push(el)
+              }
+            }
+          }
+          );
+      axios
+        .get(store.BaseAPI + store.endPoint.searchSeries + "?api_key=2685b6a8f123b29cd4c75c4bd228e18e&language=it-IT&query=pixar")
+        .then((response) => {
+          for (let i = 0; i < response.data.results.length; i++) {
+            const el = response.data.results[i];
+            if (el.backdrop_path !== null) {
+              store.pixarSeriesArr.push(el)
+            }
+          }
+        }
+        )
+    },
     checkInfoPopulated() {
       if (store.IdInfoCard.id !== null) {
         return true;
@@ -62,6 +110,7 @@ export default {
     this.getPopularOfWeek(),
       this.getCredits(),
       this.getPopularMovie();
+    this.getShowLogosCard();
   },
 
   components: { NavbarHeader, CardWrapper, ShowCard, ShowLogosCard },

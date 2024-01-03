@@ -11,11 +11,25 @@
             </div>
             <!--  -->
         </div>
+        <HorizontalCard title="Film Disney" :resultList="store.disneyMoviesArr" />
+        <HorizontalCard title="Seris Disney" :resultList="store.disneySeriesArr" />
         <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
     </section>
     <!-- PIXAR -->
     <section id="show-pixar-card" v-if="store.selectedLogosCard === 'pixar-card-logos'" class="section-card">
-        <h1>PIXAR</h1>
+        <div class="py-5 container-fluid">
+            <!-- BUTTON -->
+            <div @click="store.selectedLogosCard = null">
+                <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
+                    <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                        @click="store.showLogosCard = false"></i>
+                </span>
+            </div>
+            <!--  -->
+        </div>
+        <HorizontalCard title="Film Pixar" :resultList="store.pixarMoviesArr" />
+        <HorizontalCard title="Seris Pixar" :resultList="store.pixarSeriesArr" />
+        <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
     </section>
     <!-- MARVEL -->
     <section id="show-marvel-card" v-if="store.selectedLogosCard === 'marvel-card-logos'" class="section-card">
@@ -45,7 +59,6 @@ export default {
             store,
         };
     },
-
     components: { HorizontalCard }
 }
 </script>

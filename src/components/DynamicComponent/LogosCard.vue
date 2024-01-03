@@ -68,6 +68,7 @@ export default {
             this.store.selectedLogosCard = cardId;
             this.store.showLogosCard = true; // Show the wrapper component
         },
+
     },
 }
 </script>

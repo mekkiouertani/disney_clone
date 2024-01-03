@@ -13,12 +13,12 @@ export const store = reactive({
     searchMovies: "search/movie",
   },
   params: {
-    api_key: "2685b6a8f123b29cd4c75c4bd228e18e",
     // to pass params of the research
-    query: "",
-    num: 20,
+    //num: 20,
     // offset: 0,
+    api_key: "2685b6a8f123b29cd4c75c4bd228e18e",
     language: "it-IT",
+    query: "",
   },
 
   foundSeries: [],
@@ -36,4 +36,17 @@ export const store = reactive({
 
   imgOriginalPath: "https://image.tmdb.org/t/p/original",
   imgBackdropPath: "https://image.tmdb.org/t/p/w342",
+
+  disneyMoviesArr: [],
+  disneySeriesArr: [],
+  pixarMoviesArr: [],
+  pixarSeriesArr: [],
+  marvelMoviesArr: [],
+  marvelSeriesArr: [],
+  starwarsMoviesArr: [],
+  starwarsSeriesArr: [],
+  nationalMoviesArr: [],
+  nationalSeriesArr: [],
+  starMoviesArr: [],
+  starlSeriesArr: [],
 });
