@@ -1,6 +1,8 @@
 <template>
   <NavbarHeader />
   <ShowCard v-if="store.showCard" />
+
+  <ShowLogosCard v-if="!store.showCard" />
   <CardWrapper v-if="!store.showCard" />
 </template>
 
@@ -11,6 +13,7 @@ import CardWrapper from "./components/CardWrapper.vue";
 import { store } from './data/store.js'
 import axios from 'axios'
 import ShowCard from "./components/Pages/ShowCard.vue";
+import ShowLogosCard from "./components/Pages/ShowLogosCard.vue";
 
 export default {
   name: "App",
@@ -18,6 +21,7 @@ export default {
     return { store };
   },
   methods: {
+
     checkInfoPopulated() {
       if (store.IdInfoCard.id !== null) {
         return true;
@@ -59,9 +63,10 @@ export default {
     this.getPopularOfWeek(),
       this.getCredits(),
       this.getPopularMovie();
+
   },
 
-  components: { NavbarHeader, CardWrapper, ShowCard },
+  components: { NavbarHeader, CardWrapper, ShowCard, ShowLogosCard },
 };
 </script>
 

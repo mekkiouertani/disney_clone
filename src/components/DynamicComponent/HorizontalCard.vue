@@ -5,7 +5,7 @@
             <Carousel v-bind="settings" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
                 :breakpoints="breakpoints" id="main-slide" @click="store.showCard = true">
                 <Slide v-for="slide in  resultList " :key="slide" class="slide" @click="getInfoSlide(slide)">
-                    <div class=" carousel-slide cp" @click="store.showCardWrapper = false">
+                    <div class=" carousel-slide cp" @click="store.showCardWrapper = false, store.selectedLogosCard = null">
                         <div class=" box-image " @click=" getCardId(slide.id)">
                             <img :src="'https://image.tmdb.org/t/p/w300' + slide.backdrop_path" :alt="slide.name">
                         </div>
@@ -135,8 +135,8 @@ export default {
         }
 
         &:hover {
-            padding: px;
-            border: 5px solid white;
+            // padding: px;
+            // border: 5px solid white;
             transform: scale(1.05);
         }
 
