@@ -135,8 +135,8 @@ export default {
         }
 
         &:hover {
-            padding: px;
-            border: 5px solid white;
+            // padding: px;
+            // border: 5px solid white;
             transform: scale(1.05);
         }
 
