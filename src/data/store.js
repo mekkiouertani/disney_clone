@@ -48,5 +48,5 @@ export const store = reactive({
   nationalMoviesArr: [],
   nationalSeriesArr: [],
   starMoviesArr: [],
-  starlSeriesArr: [],
+  starSeriesArr: [],
 });
