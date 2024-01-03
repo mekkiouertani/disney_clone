@@ -5,8 +5,8 @@
             <Carousel v-bind="settings" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
                 :breakpoints="breakpoints" id="main-slide" @click="store.showCard = true">
                 <Slide v-for="slide in  resultList " :key="slide" class="slide" @click="getInfoSlide(slide)">
-                    <div class=" carousel-slide cp" @click="getCardId(slide.id)">
-                        <div class=" box-image ">
+                    <div class=" carousel-slide cp" @click="store.showCardWrapper = false">
+                        <div class=" box-image " @click=" getCardId(slide.id)">
                             <img :src="'https://image.tmdb.org/t/p/w300' + slide.backdrop_path" :alt="slide.name">
                         </div>
                     </div>
@@ -90,7 +90,7 @@ export default {
                         });
                 })
                 .finally(() => {
-                    // this.store.showCard = true; //non funge
+                    this.store.showCard = true; //non funge
                 })
         },
         getInfoSlide(slide) {

@@ -8,7 +8,9 @@
         </div>
         <!-- SECTION POSITION ABSOLUTE SOPRA L'IMMAGINE -->
         <section id="top-info-sections" class="position-absolute container-fluid top-0 ">
-            <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2" @click="store.showCard = false"></i>
+            <span @click="store.showCardWrapper = true"><i
+                    class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                    @click="store.showCard = false"></i></span>
             <h1 class="mt-5">{{ store.SlideInfo.name || store.SlideInfo.title }}</h1>
             <h6>| {{ store.IdInfoCard.genres[0].name }}</h6>
             <img id="flag" :src="getFlagApi" :alt="store.IdInfoCard.original_language">

@@ -1,5 +1,5 @@
 <template>
-    <section id="card-wrapper" v-show="store.showCardWrapper">
+    <section id="card-wrapper" v-if="store.showCardWrapper">
         <HeroSlider />
         <LogosCard />
         <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
