@@ -64,9 +64,13 @@ export default {
         }
     },
     methods: {
+        // con il click su una cardLogos passiamo l'id della card 
+        // alla funzione che passerà il valore a una variabile nello store
+        // in base a quale id della card sarà passato, nel componente show saranno mostrati
+        // i risultati inerenti con un v-if === 'nome della card selezionata'
         selectCard(cardId) {
             this.store.selectedLogosCard = cardId;
-            this.store.showLogosCard = true; // Show the wrapper component
+            this.store.showLogosCard = true;
         },
 
     },
