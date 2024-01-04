@@ -12,8 +12,8 @@
                     class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
                     @click="store.showCard = false"></i></span>
             <h1 class="mt-5">{{ store.SlideInfo.name || store.SlideInfo.title }}</h1>
-            <h6>| {{ store.IdInfoCard.genres[0].name }}</h6>
-            <img id="flag" :src="getFlagApi" :alt="store.IdInfoCard.original_language">
+            <!-- <h6>| {{ store.IdInfoCard.genres[0].name }}</h6> -->
+            <!-- <img id="flag" :src="getFlagApi" :alt="store.IdInfoCard.original_language"> -->
             <div id="star">
                 <i v-for="n in 5" :key="n" class="fa-star" :class="n <= getRate ? 'fa-solid' : 'fa-regular'"></i>
                 <span> su {{ store.SlideInfo.vote_count }} voti.</span>

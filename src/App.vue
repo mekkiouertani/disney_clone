@@ -1,12 +1,13 @@
 <template>
   <NavbarHeader />
   <ShowCard v-if="store.showCard" />
-
+  <ShowSearch v-if="store.showSearch" />
   <ShowLogosCard v-if="!store.showCard" />
-  <CardWrapper v-if="!store.showCard" />
+  <CardWrapper v-if="!store.showCard && !store.showSearch" />
 </template>
 
 <script>
+import ShowSearch from "./components/Pages/ShowSearch.vue";
 import NavbarHeader from "./components/NavbarHeader.vue";
 import CardWrapper from "./components/CardWrapper.vue";
 
@@ -66,7 +67,7 @@ export default {
 
   },
 
-  components: { NavbarHeader, CardWrapper, ShowCard, ShowLogosCard },
+  components: { NavbarHeader, CardWrapper, ShowCard, ShowLogosCard, ShowSearch },
 };
 </script>
 
