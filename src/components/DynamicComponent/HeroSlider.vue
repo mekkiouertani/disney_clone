@@ -74,13 +74,16 @@ export default {
         },
         getLogoPic(id){
             
-            let url = this.store.BaseAPI + "movie/" + id + "/images" ;
+            let url = this.store.BaseAPI + "tv/" + id + "/images"  ;
+            console.log('URL:', url);
+            console.log('Params:', this.store.params);
+
             axios
-            .get(url,{params: this.store.params})
+            .get(url ,{params: store.params })
             .then((res)=>{
                 // console.log(res);
-                this.store.LogoImagesArr = res
-                console.log(res);
+                this.store.LogoImagesArr = res.data
+                console.log(this.store.LogoImagesArr);
             })
         },
         handleClick(id) {
