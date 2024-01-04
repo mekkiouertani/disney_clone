@@ -1,12 +1,16 @@
 <template>
   <NavbarHeader />
-  <ShowCard v-if="store.showCard" />
-  <ShowSearch v-if="store.showSearch" />
-  <ShowLogosCard v-if="!store.showCard" />
-  <CardWrapper v-if="!store.showCard && !store.showSearch" />
+  <LoaderComponent v-if="store.PopularmovieArr.length <= 0" />
+  <div v-else-if="store.PopularmovieArr.length >= 0">
+    <ShowCard v-if="store.showCard" />
+    <ShowSearch v-if="store.showSearch" />
+    <ShowLogosCard v-if="!store.showCard" />
+    <CardWrapper v-if="!store.showCard && !store.showSearch" />
+  </div>
 </template>
 
 <script>
+import LoaderComponent from "./components/partials/LoaderComponent.vue";
 import ShowSearch from "./components/Pages/ShowSearch.vue";
 import NavbarHeader from "./components/NavbarHeader.vue";
 import CardWrapper from "./components/CardWrapper.vue";
@@ -67,7 +71,7 @@ export default {
 
   },
 
-  components: { NavbarHeader, CardWrapper, ShowCard, ShowLogosCard, ShowSearch },
+  components: { NavbarHeader, CardWrapper, ShowCard, ShowLogosCard, ShowSearch, LoaderComponent },
 };
 </script>
 
