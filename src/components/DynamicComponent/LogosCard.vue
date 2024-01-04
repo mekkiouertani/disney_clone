@@ -1,49 +1,49 @@
 <template>
     <div class="container-fluid mt-5">
         <div class="row gy-2">
-            <!--  -->
-            <div class="col-4 col-lg-2 ">
-                <div class="logos-card" id="disney-card-logos">
+            <!-- DISNEY -->
+            <div class="col-4 col-lg-2" @click="selectCard('disney-card-logos')">
+                <div class="logos-card" id="disney-card-logos" @click="store.showCardWrapper = false">
                     <div class="box-logo">
                         <img src="../../images/logos-card/disney-logo.png" alt="logo" class=" inverted-color">
                     </div>
                 </div>
             </div>
-            <!--  -->
-            <div class="col-4 col-lg-2 ">
-                <div class="logos-card " id="pixar-card-logos">
+            <!-- PIXAR -->
+            <div class="col-4 col-lg-2 " @click="selectCard('pixar-card-logos')">
+                <div class="logos-card " id="pixar-card-logos" @click="store.showCardWrapper = false">
                     <div class="box-logo">
                         <img src="../../images/logos-card/pixar-logo.png" alt="logo" class=" inverted-color">
                     </div>
                 </div>
             </div>
-            <!--  -->
-            <div class="col-4 col-lg-2 ">
-                <div class="logos-card " id="marvel-card-logos">
+            <!-- MARVEL -->
+            <div class="col-4 col-lg-2 " @click="selectCard('marvel-card-logos')">
+                <div class="logos-card " id="marvel-card-logos" @click="store.showCardWrapper = false">
                     <div class="box-logo">
                         <img src="../../images/logos-card/marvel-logo.png" alt="logo" class="">
                     </div>
                 </div>
             </div>
-            <!--  -->
-            <div class="col-4 col-lg-2 ">
-                <div class="logos-card " id="starwars-card-logos">
+            <!-- STAR WARS -->
+            <div class="col-4 col-lg-2 " @click="selectCard('starwars-card-logos')">
+                <div class="logos-card " id="starwars-card-logos" @click="store.showCardWrapper = false">
                     <div class="box-logo">
                         <img src="../../images/logos-card/star-wars-logo.png" alt="logo" class=" inverted-color">
                     </div>
                 </div>
             </div>
-            <!--  -->
-            <div class="col-4 col-lg-2 ">
-                <div class="logos-card  " id="national-card-logos">
+            <!-- NATIONAL GEOGRAPHIC -->
+            <div class="col-4 col-lg-2 " @click="selectCard('national-card-logos')">
+                <div class="logos-card  " id="national-card-logos" @click="store.showCardWrapper = false">
                     <div class="box-logo">
                         <img src="../../images/logos-card/national-g-logo.png" alt="logo" class=" ">
                     </div>
                 </div>
             </div>
-            <!--  -->
-            <div class="col-4 col-lg-2 ">
-                <div class="logos-card " id="star-card-logos">
+            <!-- STAR -->
+            <div class="col-4 col-lg-2 " @click="selectCard('star-card-logos')">
+                <div class="logos-card " id="star-card-logos" @click="store.showCardWrapper = false">
                     <div class="box-logo">
                         <img src="../../images/logos-card/star-logo.png" alt="logo" class=" inverted-color">
                     </div>
@@ -55,12 +55,25 @@
 </template>
 
 <script>
+import { store } from '../../data/store.js';
 export default {
     name: "LogosCard",
     data() {
+        return {
+            store,
+        }
+    },
+    methods: {
+        // con il click su una cardLogos passiamo l'id della card 
+        // alla funzione che passerà il valore a una variabile nello store
+        // in base a quale id della card sarà passato, nel componente show saranno mostrati
+        // i risultati inerenti con un v-if === 'nome della card selezionata'
+        selectCard(cardId) {
+            this.store.selectedLogosCard = cardId;
+            this.store.showLogosCard = true;
+        },
 
-        return {}
-    }
+    },
 }
 </script>
 
