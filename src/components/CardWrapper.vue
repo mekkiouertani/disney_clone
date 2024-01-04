@@ -1,4 +1,5 @@
 <template>
+
     <section id="card-wrapper" v-if="store.showCardWrapper">
         <HeroSlider />
         <LogosCard />
@@ -7,6 +8,7 @@
         <PosterCard />
         <HorizontalCard />
         <HorizontalCard />
+
     </section>
 </template>
 

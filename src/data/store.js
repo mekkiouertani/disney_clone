@@ -25,14 +25,20 @@ export const store = reactive({
   foundMovies: [],
   WeekmovieArr: [],
   PopularmovieArr: [],
+  SearchMovieSerie:[],
   CreditsArr: [],
   IdInfoCard: [],
   SlideInfo: [], //passiamo l'oggetto di IdInfoCard al componente HeroSlider
   showCard: false,
+
+  showSearch:false,
+  
+
   showCardWrapper: true,
   showLogosCard: false,
   currentFlag: "",
   selectedLogosCard: null,
+
 
   imgOriginalPath: "https://image.tmdb.org/t/p/original",
   imgBackdropPath: "https://image.tmdb.org/t/p/w342",
