@@ -17,7 +17,7 @@
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
         </div>
         <FooterComponent/>
-
+        
     </section>
     <!-- PIXAR -->
     <section id="show-pixar-card" v-if="store.selectedLogosCard === 'pixar-card-logos'" class="section-card">
