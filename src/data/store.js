@@ -31,7 +31,7 @@ export const store = reactive({
   SlideInfo: [], //passiamo l'oggetto di IdInfoCard al componente HeroSlider
   showCard: false,
 
-  showSearch:false,
+  showSearch:true,
   
 
   showCardWrapper: true,
