@@ -3,17 +3,20 @@
         <nav class="nav" :class="{ 'nav': true, 'scrolled': isScrolled }">
             <section id="left" class="d-flex align-items-center ">
                 <!-- LOGO -->
-                <div class="box-logo cp brand-logo" v-if="showSearch">
+                <div class="box-logo cp brand-logo">
                     <img class="brand-logo" src="../images/logo-header.png" alt="logo-disney+" />
                 </div>
                 <!-- LIST NAVBAR -->
-                <ul class="d-flex list-unstyled fw-bold mt-4 " v-if="showSearch">
-                    <li class="mx-3 cp">
+                <ul class="d-flex list-unstyled fw-bold mt-4 ">
+                    <li class="mx-3 cp"
+                        @click="store.showSearch = false, store.showCardWrapper = true, store.showLogosCard = false, store.selectedLogosCard = null, store.showCard = false">
                         <i class="fa-solid fa-house px-2"></i>
                         <span class="d-none d-lg-inline bor">HOME</span>
                     </li>
                     <li class="mx-3 cp">
-                        <i class="fa-solid fa-magnifying-glass px-2" @click="toggleSearch"></i>
+                        <span @click="toggleSearch">
+                            <i class="fa-solid fa-magnifying-glass px-2" @click=" store.showCardWrapper = false"></i>
+                        </span>
                         <span class="d-none d-lg-inline">
                             <input type="text" placeholder="CERCA" v-model="textInput" @keyup.enter="searchResults">
                         </span>
@@ -28,32 +31,37 @@
                     </li>
                 </ul>
                 <!-- SEARCHBAR SMALL QUERY -->
+
+
+                <!-- nascondo momentaneamente questo perche la showSearch sarà diversa da questo
                 <div id="small-input" class="mx-3 cp mt-2 fs-4 w-100 d-flex align-items-center " v-if="!showSearch">
                     <i class="fa-solid fa-arrow-left" @click="toggleSearch"></i>
                     <input type="text" placeholder="CERCA ..." class="w-50 mx-5" v-model="textInput"
                         @keyup.enter="searchResults">
-                </div>
+                </div> -->
+
             </section>
+
             <!-- PROFILE USER -->
-            <div class="end-navbar d-flex align-items-center" v-if="showSearch">
+            <div class="end-navbar d-flex align-items-center">
                 <span class="mx-3 mt-2 d-none d-lg-inline">Topolino</span>
                 <div class="box-logo-circle cp">
                     <img src="../images/topolino-avatar-profile.png" alt="avatar-di-topolino">
                 </div>
             </div>
         </nav>
+
     </header>
 </template>
 
 <script>
 import axios from 'axios';
 import { store } from '../data/store.js';
-
 export default {
     name: "NavbarHeader",
     data() {
         return {
-            showSearch: true,
+            showSearch: store.showSearch,
             isScrolled: false,
             textInput: '',
             store,
@@ -92,7 +100,7 @@ export default {
             }
         },
         toggleSearch() {
-            this.showSearch = !this.showSearch;
+            this.store.showSearch = this.store.showSearch = true
         },
         handleScroll() {
             const scrollPosition = window.scrollY;
@@ -102,6 +110,7 @@ export default {
     mounted() {
         window.addEventListener("scroll", this.handleScroll);
     },
+    components: {},
 };
 </script>
 
@@ -187,6 +196,25 @@ export default {
             min-width: 350px !important;
         }
     }
+
+
+    // #new-input{
+    // position: fixed;
+    // left: 0px;
+    // transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    // outline: none;
+    // text-overflow: ellipsis;
+    // z-index: calc(9);
+    // border: none;
+    // background: rgb(75, 78, 90);
+    // color: rgb(168, 169, 173);
+    // height: 60px;
+    // padding-left: calc(3.5vw + 24px);
+    // width: 100vw;
+    // font-size: 44px;
+    // letter-spacing: .11px;
+    // line-height: 1.2;
+    // }
 
     li {
         transition: 0.5s;

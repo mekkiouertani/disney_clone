@@ -1,4 +1,5 @@
 <template>
+
     <section id="card-wrapper" v-if="store.showCardWrapper">
         <HeroSlider />
         <LogosCard />
@@ -9,6 +10,7 @@
         <HorizontalCard />
         <FooterComponent/>
     </section>
+    
 </template>
 
 <script>

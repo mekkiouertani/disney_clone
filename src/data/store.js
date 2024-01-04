@@ -25,10 +25,12 @@ export const store = reactive({
   foundMovies: [],
   WeekmovieArr: [],
   PopularmovieArr: [],
+  SearchMovieSerie: [],
   CreditsArr: [],
   IdInfoCard: [],
   SlideInfo: [], //passiamo l'oggetto di IdInfoCard al componente HeroSlider
   showCard: false,
+  showSearch: false,
   showCardWrapper: true,
   showLogosCard: false,
   currentFlag: "",
