@@ -30,16 +30,21 @@
         <HorizontalCard id="horizontal-card" class="position-absolute" title="Raccomandati per te"
             :resultList="store.PopularmovieArr" />
     </section>
+    <FooterComponent/>
+
 </template>
 <script>
 import { store } from '../../data/store.js';
 import HorizontalCard from '../DynamicComponent/HorizontalCard.vue';
+import FooterComponent from '../partials/FooterComponent.vue';
+
 export default {
     name: 'ShowCard',
 
     components: {
-        HorizontalCard
-    },
+    HorizontalCard,
+    FooterComponent
+},
 
     data() {
         return {

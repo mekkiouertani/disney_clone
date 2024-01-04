@@ -1,7 +1,7 @@
 <template>
   <NavbarHeader />
   <ShowCard v-if="store.showCard" />
-
+  
   <ShowLogosCard v-if="!store.showCard" />
   <CardWrapper v-if="!store.showCard" />
 </template>
@@ -10,8 +10,8 @@
 import NavbarHeader from "./components/NavbarHeader.vue";
 import CardWrapper from "./components/CardWrapper.vue";
 
-import { store } from './data/store.js'
-import axios from 'axios'
+import { store } from './data/store.js';
+import axios from 'axios';
 import ShowCard from "./components/Pages/ShowCard.vue";
 import ShowLogosCard from "./components/Pages/ShowLogosCard.vue";
 
@@ -66,7 +66,7 @@ export default {
 
   },
 
-  components: { NavbarHeader, CardWrapper, ShowCard, ShowLogosCard },
+  components: { NavbarHeader, CardWrapper, ShowCard,  ShowLogosCard, }
 };
 </script>
 

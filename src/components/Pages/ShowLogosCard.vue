@@ -16,6 +16,8 @@
             <HorizontalCard title="Series Disney" :resultList="store.disneySeriesArr" />
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
         </div>
+        <FooterComponent/>
+
     </section>
     <!-- PIXAR -->
     <section id="show-pixar-card" v-if="store.selectedLogosCard === 'pixar-card-logos'" class="section-card">
@@ -34,6 +36,8 @@
             <HorizontalCard title="Series Pixar" :resultList="store.pixarSeriesArr" />
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
         </div>
+        <FooterComponent/>
+
     </section>
     <!-- MARVEL -->
     <section id="show-marvel-card" v-if="store.selectedLogosCard === 'marvel-card-logos'" class="section-card">
@@ -52,6 +56,8 @@
             <HorizontalCard title="Series Marvel" :resultList="store.marvelSeriesArr" />
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
         </div>
+        <FooterComponent/>
+
     </section>
     <!-- STAR WARS -->
     <section id="show-starwars-card" v-if="store.selectedLogosCard === 'starwars-card-logos'" class="section-card">
@@ -70,6 +76,8 @@
             <HorizontalCard title="Series Star Wars" :resultList="store.starwarsSeriesArr" />
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
         </div>
+        <FooterComponent/>
+
     </section>
     <!-- NATIONAL GEOGRAPHIC -->
     <section id="show-national-card" v-if="store.selectedLogosCard === 'national-card-logos'" class="section-card">
@@ -88,6 +96,7 @@
             <HorizontalCard title="Series National Geographic" :resultList="store.nationalSeriesArr" />
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
         </div>
+        <FooterComponent/>
     </section>
     <!-- STAR -->
     <section id="show-star-card" v-if="store.selectedLogosCard === 'star-card-logos'" class="section-card">
@@ -106,13 +115,16 @@
             <HorizontalCard title="Series Star Original" :resultList="store.starSeriesArr" />
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
         </div>
+        <FooterComponent/>
     </section>
+    
 </template>
 
 <script>
 import axios from 'axios'
 import HorizontalCard from '../DynamicComponent/HorizontalCard.vue';
 import { store } from '../../data/store.js';
+import FooterComponent from '../partials/FooterComponent.vue';
 export default {
     name: "ShowLogosCard",
     data() {
@@ -265,7 +277,7 @@ export default {
     created() {
         this.getShowLogosCard();
     },
-    components: { HorizontalCard }
+    components: { HorizontalCard, FooterComponent }
 }
 </script>
 
