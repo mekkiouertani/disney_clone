@@ -1,12 +1,12 @@
 <template>
     <section id="card-wrapper">
-        <HeroSlider />
-        <LogosCard />
-        <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr"/>
-        <HorizontalCard />
-        <PosterCard />
-        <HorizontalCard />
-        <HorizontalCard />
+        <HeroSlider v-if="store.showSearch" />
+        <LogosCard  v-if="store.showSearch"/>
+        <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" v-if="store.showSearch" />
+        <HorizontalCard v-if="store.showSearch" />
+        <PosterCard  v-if="store.showSearch"/>
+        <HorizontalCard v-if="store.showSearch" />
+        <HorizontalCard  v-if="store.showSearch"/>
     </section>
 </template>
 
