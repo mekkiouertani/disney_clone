@@ -8,8 +8,9 @@
         <PosterCard />
         <HorizontalCard />
         <HorizontalCard />
-
+        <FooterComponent/>
     </section>
+    
 </template>
 
 <script>
@@ -18,6 +19,7 @@ import HeroSlider from './DynamicComponent/HeroSlider.vue';
 import LogosCard from './DynamicComponent/LogosCard.vue';
 import HorizontalCard from './DynamicComponent/HorizontalCard.vue';
 import PosterCard from './DynamicComponent/PosterCard.vue';
+import FooterComponent from "./partials/FooterComponent.vue";
 export default {
     name: "CardWrapper",
     data() {
@@ -26,11 +28,12 @@ export default {
         };
     },
     components: {
-        HeroSlider,
-        LogosCard,
-        HorizontalCard,
-        PosterCard
-    },
+    HeroSlider,
+    LogosCard,
+    HorizontalCard,
+    PosterCard,
+    FooterComponent
+},
 }
 </script>
 

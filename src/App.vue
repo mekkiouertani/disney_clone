@@ -1,4 +1,5 @@
 <template>
+
   <IntroComponent v-if="introisHidden === true" />
   <section v-else-if="!introisHidden">
     <NavbarHeader />
@@ -10,6 +11,7 @@
       <CardWrapper v-if="!store.showCard && !store.showSearch" />
     </div>
   </section>
+
 </template>
 
 <script>
@@ -19,8 +21,8 @@ import ShowSearch from "./components/Pages/ShowSearch.vue";
 import NavbarHeader from "./components/NavbarHeader.vue";
 import CardWrapper from "./components/CardWrapper.vue";
 
-import { store } from './data/store.js'
-import axios from 'axios'
+import { store } from './data/store.js';
+import axios from 'axios';
 import ShowCard from "./components/Pages/ShowCard.vue";
 import ShowLogosCard from "./components/Pages/ShowLogosCard.vue";
 
@@ -83,7 +85,9 @@ export default {
 
   },
 
+
   components: { IntroComponent, NavbarHeader, CardWrapper, ShowCard, ShowLogosCard, ShowSearch, LoaderComponent },
+
 };
 </script>
 
