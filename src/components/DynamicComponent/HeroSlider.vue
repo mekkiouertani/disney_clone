@@ -4,7 +4,7 @@
         <Carousel :autoplay="4000" :items-to-show="1.1" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
             id="main-slide">
             <Slide v-for="slide in  store.WeekmovieArr " :key="slide" id="slide">
-                <div class="carousel-slide  cp" @click="getCardId(slide.id)">
+                <div class="carousel-slide  cp" @click="handleClick(slide.id)">
                     <div class="box-image"><img :src="store.imgOriginalPath + slide.backdrop_path" :alt="slide.name"></div>
                 </div>
             </Slide>
@@ -54,7 +54,7 @@ export default {
                 .catch((error) => {
                     //console.error("Errore nella richiesta del film:", error);
                     axios
-                        .get(store.BaseAPI + "tv/" + id, { params: this.store.params })
+                        .get(store.BaseAPI + "tv/" + id, { params: store.params })
                         .then((tvRes) => {
                             // console.log(`tv id`, tvRes.data);
                             this.store.IdInfoCard = tvRes.data;
@@ -71,6 +71,21 @@ export default {
                     this.store.showCard = true;
                 })
 
+        },
+        getLogoPic(id){
+            
+            let url = this.store.BaseAPI + "movie/" + id + "/images" ;
+            axios
+            .get(url,{params: this.store.params})
+            .then((res)=>{
+                // console.log(res);
+                this.store.LogoImagesArr = res
+                console.log(res);
+            })
+        },
+        handleClick(id) {
+            this.getCardId(id);
+            this.getLogoPic(id);
         }
     },
 }

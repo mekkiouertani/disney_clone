@@ -10,6 +10,7 @@ export const store = reactive({
     endCreditsTV: "/credits",
     searchSeries: "search/tv",
     searchMovies: "search/movie",
+    images:"/images"
   },
   params: {
     api_key: "2685b6a8f123b29cd4c75c4bd228e18e",
@@ -26,6 +27,7 @@ export const store = reactive({
   PopularmovieArr: [],
   CreditsArr: [],
   IdInfoCard: [],
+  LogoImagesArr:[],
   showCard: false,
 
   imgOriginalPath: "https://image.tmdb.org/t/p/original",
