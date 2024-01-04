@@ -1,15 +1,19 @@
 <template>
-  <NavbarHeader />
-  <LoaderComponent v-if="store.PopularmovieArr.length <= 0" />
-  <div v-else-if="store.PopularmovieArr.length >= 0">
-    <ShowCard v-if="store.showCard" />
-    <ShowSearch v-if="store.showSearch" />
-    <ShowLogosCard v-if="!store.showCard" />
-    <CardWrapper v-if="!store.showCard && !store.showSearch" />
-  </div>
+  <IntroComponent v-if="introisHidden === true" />
+  <section v-else-if="!introisHidden">
+    <NavbarHeader />
+    <LoaderComponent v-if="store.PopularmovieArr.length <= 0" />
+    <div v-else-if="store.PopularmovieArr.length >= 0">
+      <ShowCard v-if="store.showCard" />
+      <ShowSearch v-if="store.showSearch" />
+      <ShowLogosCard v-if="!store.showCard" />
+      <CardWrapper v-if="!store.showCard && !store.showSearch" />
+    </div>
+  </section>
 </template>
 
 <script>
+import IntroComponent from "./components/partials/IntroComponent.vue";
 import LoaderComponent from "./components/partials/LoaderComponent.vue";
 import ShowSearch from "./components/Pages/ShowSearch.vue";
 import NavbarHeader from "./components/NavbarHeader.vue";
@@ -23,7 +27,10 @@ import ShowLogosCard from "./components/Pages/ShowLogosCard.vue";
 export default {
   name: "App",
   data() {
-    return { store };
+    return {
+      store,
+      introisHidden: true,
+    }
   },
   methods: {
 
@@ -64,6 +71,11 @@ export default {
         )
     },
   },
+  mounted() {
+    setTimeout(() => {
+      this.introisHidden = false;
+    }, 1500);
+  },
   created() {
     this.getPopularOfWeek(),
       this.getCredits(),
@@ -71,7 +83,7 @@ export default {
 
   },
 
-  components: { NavbarHeader, CardWrapper, ShowCard, ShowLogosCard, ShowSearch, LoaderComponent },
+  components: { IntroComponent, NavbarHeader, CardWrapper, ShowCard, ShowLogosCard, ShowSearch, LoaderComponent },
 };
 </script>
 
