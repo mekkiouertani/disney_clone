@@ -93,6 +93,9 @@ export default {
                     this.store.showCard = true; //non funge
                 })
         },
+        /* oltre all'id che prendiamo con la funzione getCardId, passiamo anche l'intero oggetto in un nuovo array
+        in modo che alcuni dati possiamo prenderli dall'array generato tramite id specifico del movie, 
+        che dall'array che restituisce 20 titoli */
         getInfoSlide(slide) {
             this.store.SlideInfo = slide;
         }
