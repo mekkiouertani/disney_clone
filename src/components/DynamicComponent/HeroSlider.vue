@@ -5,13 +5,14 @@
             <Slide v-for="slide in  store.WeekmovieArr " :key="slide" class="slide" @click="getInfoSlide(slide)">
                 <div class="carousel-slide position-relative cp" @click="getCardId(slide.id)">
                     <div class="position-absolute box-logos-image">
-                        
-                        
                         <!-- ciclo l'array -->
-                        <div v-for="logo in store.mainArr">
-                            <div v-if="logo.id === slide.id" class=" d-flex flex-row justify-content-center  align-items-center ">
-                                <img style="width: 300px; height: auto;" :src=" store.imgOriginalPath + logo.logo_path" alt="">
-                            </div>
+                        <div v-for="logo in store.mainArr" class=" w-50">
+                            <Transition name="slide-fade">
+                                <div v-if="logo.id === slide.id" class=" d-flex   align-items-center px-3  ">
+                                    <img style="width: 200px; height: auto;" :src="store.imgOriginalPath + logo.logo_path"
+                                        alt="">
+                                </div>
+                            </Transition>
                         </div>
                         <!-- {{ store.imgOriginalPath + logo.logo_path }} 
                         <img :src="store.imgOriginalPath + logo.logo_path" alt="networks-logo" class="images"> -->
@@ -115,6 +116,20 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../../src/assets/style/partials/variables' as *;
+
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
 
 #hero-slider {
 
