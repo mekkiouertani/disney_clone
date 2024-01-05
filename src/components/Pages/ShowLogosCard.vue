@@ -295,7 +295,7 @@ export default {
 }
 
 .slide-fade-leave-active {
-    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
@@ -313,27 +313,31 @@ export default {
 } */
 
 #show-disney-card {
-    background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXV4b2Zvb2M3Z2hhcHJ6M2FyYzBpenlhcndoOWswbDN1NHQxMGk0NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d8SMqAtm3D9bYfOtcs/giphy.gif');
+    background-image: url(../../images/logos-card/disneyback.png);
 }
 
 #show-pixar-card {
-    background-image: url('https://i.gifer.com/DRR3.gif');
+    background-image: url(../../images/logos-card/pixarback.jpeg);
+    background-position: top;
 }
 
 #show-marvel-card {
-    background-image: url(../../../public/images/marvel-logos-card.gif);
+    background-image: url(../../images/logos-card/marvelback.jpeg);
+    background-position: top;
 }
 
 #show-starwars-card {
-    background-image: url(../../../public/images//starwars-logos-card.gif);
+    background-image: url(../../images/logos-card/starwarsback.jpeg);
 }
 
 #show-national-card {
-    background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGJ5Z214ZmJsZm0xMTU5d2MzMXA5N2hndnJocWU5ZGFod21nbDh4biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KXtCdH18u5Z7B3ERL8/giphy.gif');
+    background-image: url(../../images/logos-card/nationalback.jpeg);
+    background-position: top;
 }
 
 #show-star-card {
-    background-image: url('https://media1.tenor.com/m/xY-zQHFRpaAAAAAC/star-original-production-star-original.gif');
+    background-image: url(../../images/logos-card/starback.jpeg);
+    background-position: center;
 }
 
 .section-card {
