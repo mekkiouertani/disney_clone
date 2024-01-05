@@ -69,9 +69,7 @@ export default {
                             console.error("Errore nella richiesta della serie TV:", tvError);
                         });
                 })
-                .finally(() => {
-                    this.store.showCard = true;
-                })
+                
 
         },
         /**
@@ -87,6 +85,9 @@ export default {
                 .get(url, { params: this.store.params })
                 .then((res) => {
                     this.store.IdInfoCard.cast = res.data.cast;
+                })
+                .finally(() => {
+                    this.store.showCard = true;
                 })
 
         },

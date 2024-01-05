@@ -117,12 +117,16 @@ export default {
 <style lang="scss" scoped>
 @use '../../src/assets/style/partials/variables' as *;
 
+
 .nav {
+    
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 29%, rgba(112, 198, 183, 0) 97%, rgba(118, 208, 192, 0) 97%);
     transition: 1s;
 
     &.scrolled {
+        //aggiunto lo z-index dell'header per evitare di oscurare le componenti con indiana jones
+        z-index: 20000;
         background: $black-color;
         transition: 0.5s ease-in; // Effetto di transizione
     }
