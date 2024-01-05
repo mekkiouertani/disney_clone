@@ -5,7 +5,7 @@
                 <img class="logo" src="../../images/logo-header.png" alt="logo-disney+" />
             </div>
         </div>
-             <div >
+             <div class="container-fluid " >
                 <ul class="list-div justify-content-center gap-4   list-unstyled d-flex m-0 mt-3 " style="font-size: 12px;">
                     <li><a>Informativa sulla privacy</a></li>
                     <li><a >Policy sui cookie</a></li>
@@ -71,5 +71,23 @@ footer{
             padding-bottom: 1.5rem;
             
         }
+
+        
 }
+
+@media screen and (min-width: 575.98px) {
+    .list-div {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+} 
+
+@media screen and (max-width: 575.98px) {
+    .list-div {
+        flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+    }
+}  
 </style>
