@@ -313,30 +313,32 @@ export default {
 } */
 
 #show-disney-card {
-    background-image: url(../../images/logos-card/disneyback.png);
+    background-image: url("../../images/logos-card/disneyback.png");
+    
 }
 
 #show-pixar-card {
-    background-image: url(../../images/logos-card/pixarback.jpeg);
+    background-image: url("../../images/logos-card/pixarback.jpeg");
     background-position: top;
 }
 
 #show-marvel-card {
-    background-image: url(../../images/logos-card/marvelback.jpeg);
+    background-image: url("../../images/logos-card/marvelback.jpeg");
     background-position: top;
 }
 
 #show-starwars-card {
-    background-image: url(../../images/logos-card/starwarsback.jpeg);
+    background-image: url("../../images/logos-card/starwarsback.jpeg");
+    background-position: top;
 }
 
 #show-national-card {
-    background-image: url(../../images/logos-card/nationalback.jpeg);
+    background-image: url("../../images/logos-card/nationalback.jpeg");
     background-position: top;
 }
 
 #show-star-card {
-    background-image: url(../../images/logos-card/starback.jpeg);
+    background-image: url("../../images/logos-card/starback.jpeg");
     background-position: center;
 }
 
