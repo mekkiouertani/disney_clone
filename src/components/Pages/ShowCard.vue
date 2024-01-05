@@ -8,36 +8,37 @@
         </div>
 
         <!-- SECTION POSITION ABSOLUTE SOPRA L'IMMAGINE -->
-        
-            <section id="top-info-sections right-left-wrapper d-flex flex-row justify-content-between flex-wrap " class="position-absolute container-fluid top-0 w-75">
-                <div>
-                    <span @click="store.showCardWrapper = true"><i
-                            class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
-                            @click="store.showCard = false"></i></span>
-                    <h1 class="mt-5">{{ store.SlideInfo.name || store.SlideInfo.title }}</h1>
-                    <!-- generi -->
-                    <slide v-for="genre in  store.IdInfoCard.genres"> {{ genre.name }}  | &nbsp;</slide>
-                    <!-- bandiera -->
-                    <img id="flag" :src="getFlagApi" :alt="store.IdInfoCard.original_language">
-                    <div id="star">
-                        <i v-for="n in 5" :key="n" class="fa-star" :class="n <= getRate ? 'fa-solid' : 'fa-regular'"></i>
-                        <span> su {{ store.SlideInfo.vote_count }} voti.</span>
-                    </div>
-                    <p class="mt-3 fs-5 w-50 overview ">{{ store.SlideInfo.overview }}</p>
+
+        <section id="top-info-sections right-left-wrapper d-flex flex-row justify-content-between flex-wrap"
+            class="position-absolute container-fluid top-0 w-75">
+            <div>
+                <span @click="store.showCardWrapper = true"><i
+                        class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                        @click="store.showCard = false"></i></span>
+                <h1 class="mt-5">{{ store.SlideInfo.name || store.SlideInfo.title }}</h1>
+                <!-- generi -->
+                <slide v-for="genre in  store.IdInfoCard.genres"> {{ genre.name }} | &nbsp;</slide>
+                <!-- bandiera -->
+                <img id="flag" :src="getFlagApi" :alt="store.IdInfoCard.original_language">
+                <div id="star">
+                    <i v-for="n in 5" :key="n" class="fa-star" :class="n <= getRate ? 'fa-solid' : 'fa-regular'"></i>
+                    <span> su {{ store.SlideInfo.vote_count }} voti.</span>
                 </div>
+                <p class="mt-3 fs-5 w-50 overview ">{{ store.SlideInfo.overview }}</p>
+            </div>
             <!-- da inserire dove si preferisce -->
             <div class="w-25">
-                <h6>CAST</h6>    
+                <h6>CAST</h6>
 
                 <span v-for="person in store.IdInfoCard.cast">
                     Nome: {{ person.original_name }},
-                    Roulo: {{ person.character }} <br></span>
+                    Ruolo: {{ person.character }} <br></span>
             </div>
-                
-            </section>
 
-            
-        
+        </section>
+
+
+
         <!-- IMG BACKGROUND BOTTOM -->
         <div class="box-hero-image bottom position-relative">
             <img class="images" :src="getImage"
@@ -48,8 +49,7 @@
         <HorizontalCard id="horizontal-card" class="position-absolute" title="Raccomandati per te"
             :resultList="store.PopularmovieArr" />
     </section>
-    <FooterComponent/>
-
+    <FooterComponent />
 </template>
 <script>
 import { store } from '../../data/store.js';
@@ -60,9 +60,9 @@ export default {
     name: 'ShowCard',
 
     components: {
-    HorizontalCard,
-    FooterComponent
-},
+        HorizontalCard,
+        FooterComponent
+    },
 
     data() {
         return {
@@ -114,17 +114,21 @@ export default {
     //     height: 40vh;
 
     // }
-    .box-hero-image{
-        &.top{
+    .fa-left-long {
+        margin-top: 100px !important;
+    }
+
+    .box-hero-image {
+        &.top {
             width: auto;
-            min-height: 70vh!important;
-            
+            min-height: 70vh !important;
+
             //l'altezza dll'immagine della scheda rimane statica ma almeno non crea probelmi con le media query e l'altezza proporzionale di queste immagini nella pagina
-            img{
+            img {
                 min-height: 70vh;
             }
         }
-        
+
     }
 
     #top-info-sections {
@@ -176,8 +180,9 @@ export default {
         top: 62.5%;
 
     }
-    @media  screen and (min-width: 1400px) {
-        .overview{
+
+    @media screen and (min-width: 1400px) {
+        .overview {
             max-height: 240px;
         }
     }
@@ -187,24 +192,26 @@ export default {
             height: 70vh;
 
         }
-        .overview{
+
+        .overview {
             max-height: 130px;
         }
 
     }
+
     @media screen and (min-width: 600px) {
-        .overview{
+        .overview {
             max-height: 130px;
         }
 
     }
 
     @media screen and (min-width: 400px) {
-       .overview{
-           max-height: 90px;
-       }
+        .overview {
+            max-height: 90px;
+        }
 
-   }
+    }
 
 }
 </style>
