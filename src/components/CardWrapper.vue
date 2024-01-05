@@ -4,10 +4,10 @@
         <HeroSlider />
         <LogosCard />
         <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-        <HorizontalCard />
+        <HorizontalCard title="Star Movies" :resultList="store.starMoviesArr"/>
         <PosterCard />
-        <HorizontalCard />
-        <HorizontalCard />
+        <HorizontalCard title="Star Series" :resultList="store.starSeriesArr"/>
+        <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr"/>
         <FooterComponent/>
     </section>
     
@@ -33,8 +33,13 @@ export default {
     HorizontalCard,
     PosterCard,
     FooterComponent
-},
+    },
+    created() {
+        console.log('disney')
+        console.dir(store.disneyMoviesArray);
+    }
 }
+
 </script>
 
 <style lang="scss" scoped>

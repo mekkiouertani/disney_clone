@@ -96,7 +96,12 @@ export default {
               });
           })
       });
+
+
+      
     },
+    
+    
     /* ------------------ */
     getPopularMovie() {
       axios
@@ -122,6 +127,7 @@ export default {
     
   },
   mounted() {
+
     setTimeout(() => {
       this.introisHidden = false;
     }, 1500);
@@ -135,6 +141,7 @@ export default {
     this.getPopularOfWeek(),
       this.getCredits(),
       this.getPopularMovie();
+      
 
   },
 
@@ -145,3 +152,4 @@ export default {
 </script>
 
 <style lang="scss" scoped></style>
+

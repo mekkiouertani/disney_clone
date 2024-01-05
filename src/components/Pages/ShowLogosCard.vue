@@ -135,6 +135,7 @@ export default {
     methods: {
         getShowLogosCard() {
             /* disney */
+
             axios
                 .get(store.BaseAPI + store.endPoint.searchMovies + "?api_key=2685b6a8f123b29cd4c75c4bd228e18e&language=it-IT&query=disney")
                 .then((response) => {
