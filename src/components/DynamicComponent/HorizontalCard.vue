@@ -118,7 +118,7 @@ export default {
 
     .slide {
         margin-right: 0 19% !important;
-        height: 200px;
+        // height: 200px;
 
     }
 

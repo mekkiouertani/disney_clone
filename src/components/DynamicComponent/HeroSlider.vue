@@ -69,7 +69,7 @@ export default {
                             console.error("Errore nella richiesta della serie TV:", tvError);
                         });
                 })
-                
+
 
         },
         /**
@@ -152,6 +152,10 @@ export default {
     .pagination {
         bottom: 100px !important;
         right: 50px !important;
+    }
+
+    .slide {
+        height: 320px;
     }
 }
 </style>

@@ -219,6 +219,15 @@ export default {
             max-height: 90px;
         }
 
+        .box-hero-image {
+            &.top {
+                width: auto;
+                height: 20vh !important;
+
+            }
+
+        }
+
     }
 
 }
