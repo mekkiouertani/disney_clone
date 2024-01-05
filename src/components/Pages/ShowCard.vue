@@ -1,7 +1,7 @@
 <template>
     <section id="show-card">
         <!-- IMG BACKGROUND -->
-        <div class="box-hero-image position-relative">
+        <div class="box-hero-image top position-relative">
             <img class="images" :src="getImage"
                 :alt="store.IdInfoCard.name ? store.IdInfoCard.title : store.IdInfoCard.name">
             <div class="bg-shades position-absolute top-0 "></div>
@@ -90,10 +90,23 @@ export default {
 
 #show-card {
 
+    // rimossa perche dava problemi con le query e il display dell'immagine al ristringimento della pagina
+    // .box-hero-image {
 
-    .box-hero-image {
-        height: 40vh;
+    //     height: 40vh;
 
+    // }
+    .box-hero-image{
+        &.top{
+            width: auto;
+            min-height: 70vh!important;
+            
+            //l'altezza dll'immagine della scheda rimane statica ma almeno non crea probelmi con le media query e l'altezza proporzionale di queste immagini nella pagina
+            img{
+                min-height: 70vh;
+            }
+        }
+        
     }
 
     #top-info-sections {
@@ -127,7 +140,6 @@ export default {
 
     .overview {
         // max-height: 50%;
-        max-height: 180px;
         overflow-y: auto;
     }
 
@@ -146,8 +158,10 @@ export default {
         top: 62.5%;
 
     }
-    @media  screen and (min-width) {
-        
+    @media  screen and (min-width: 1400px) {
+        .overview{
+            max-height: 240px;
+        }
     }
 
     @media screen and (min-width:1140px) {
