@@ -13,12 +13,13 @@
                         <i class="fa-solid fa-house px-2"></i>
                         <span class="d-none d-lg-inline bor">HOME</span>
                     </li>
-                    <li class="mx-3 cp">
-                        <span @click="toggleSearch">
+                    <li class="mx-3 cp" @click="toggleSearch">
+                        <span>
                             <i class="fa-solid fa-magnifying-glass px-2" @click=" store.showCardWrapper = false"></i>
                         </span>
-                        <span class="d-none d-lg-inline">
-                            <input type="text" placeholder="CERCA" v-model="textInput" @keyup.enter="searchResults">
+                        <span class="d-none d-lg-inline search-span">
+                            <!-- <input type="text" placeholder="CERCA" v-model="textInput" @keyup.enter="searchResults"> -->
+                            CERCA
                         </span>
                     </li>
                     <li class="mx-3 cp">
@@ -119,7 +120,7 @@ export default {
 
 
 .nav {
-    
+
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 29%, rgba(112, 198, 183, 0) 97%, rgba(118, 208, 192, 0) 97%);
     transition: 1s;
@@ -186,6 +187,14 @@ export default {
             color: white;
         }
 
+    }
+
+    .search-span{
+        
+        &:hover {
+            width: 250px;
+            border-bottom: 1px solid #ffffff;
+        }
     }
 
     #small-input {

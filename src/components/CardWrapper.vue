@@ -1,16 +1,18 @@
 <template>
 
-    <section id="card-wrapper" v-if="store.showCardWrapper">
-        <HeroSlider />
-        <LogosCard />
-        <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-        <HorizontalCard title="Star Movies" :resultList="store.starMoviesArr"/>
-        <PosterCard />
-        <HorizontalCard title="Star Series" :resultList="store.starSeriesArr"/>
-        <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr"/>
-        <FooterComponent/>
-    </section>
-    
+    <Transition name="slide-fade">
+        <section id="card-wrapper" v-if="store.showCardWrapper">
+            <HeroSlider />
+            <LogosCard />
+            <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
+            <HorizontalCard />
+            <PosterCard />
+            <HorizontalCard />
+            <HorizontalCard />
+            <FooterComponent />
+        </section>
+    </Transition>
+
 </template>
 
 <script>
@@ -28,16 +30,14 @@ export default {
         };
     },
     components: {
-    HeroSlider,
-    LogosCard,
-    HorizontalCard,
-    PosterCard,
-    FooterComponent
+
+        HeroSlider,
+        LogosCard,
+        HorizontalCard,
+        PosterCard,
+        FooterComponent
     },
-    created() {
-        console.log('disney')
-        console.dir(store.disneyMoviesArray);
-    }
+
 }
 
 </script>
@@ -45,5 +45,19 @@ export default {
 <style lang="scss" scoped>
 #card-wrapper {
     margin-top: 100px;
+}
+
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateY(20px);
+    opacity: 0;
 }
 </style>

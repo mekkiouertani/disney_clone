@@ -187,5 +187,9 @@ export default {
         bottom: 100px !important;
         right: 50px !important;
     }
+
+    .slide {
+        height: 320px;
+    }
 }
 </style>

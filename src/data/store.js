@@ -35,6 +35,7 @@ export const store = reactive({
   showLogosCard: false,
   currentFlag: "",
   selectedLogosCard: null,
+  castSlice: [],
 
   mainArr: [],
 
