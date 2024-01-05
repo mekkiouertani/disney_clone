@@ -27,12 +27,13 @@
                 <p class="mt-3 fs-5 w-50 overview ">{{ store.SlideInfo.overview }}</p>
             </div>
             <!-- da inserire dove si preferisce -->
-            <div class="w-25">
-                <h6>CAST</h6>
-
-                <span v-for="person in store.IdInfoCard.cast">
-                    Nome: {{ person.original_name }},
-                    Ruolo: {{ person.character }} <br></span>
+            <h6>CAST</h6>
+            <div class="w-50 cast border-bottom pb-2 ">
+                <p class="mt-3 fs-5 overview cast-info " v-for="person in store.IdInfoCard.cast">
+                    <span class="fs-4">{{ person.character }}</span> interpretato da
+                    <span class="fs-3">{{ person.original_name }}</span>,
+                    <br>
+                </p>
             </div>
 
         </section>
@@ -105,6 +106,17 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../../src/assets/style/partials/variables' as *;
+
+.cast {
+
+    max-height: 140px !important;
+    overflow: scroll;
+
+    .cast-info {
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.5);
+        margin: 10px 0 !important;
+    }
+}
 
 #show-card {
 

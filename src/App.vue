@@ -67,7 +67,7 @@ export default {
         .get(store.BaseAPI + store.endPoint.creditsTV + store.movieID + store.endPoint.endCreditsTV, { params: store.params })
         .then((response) => {
           //populate the array  store.CreditsArr  for request
-          store.CreditsArr = response.data.crew;
+          store.CreditsArr = response.data.crew
           console.log(store.CreditsArr);
         }
         )

@@ -35,6 +35,7 @@ export const store = reactive({
   showLogosCard: false,
   currentFlag: "",
   selectedLogosCard: null,
+  castSlice: [],
 
   imgOriginalPath: "https://image.tmdb.org/t/p/original",
   imgBackdropPath: "https://image.tmdb.org/t/p/w342",
