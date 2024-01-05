@@ -27,19 +27,15 @@
                 <p class="mt-3 fs-5 w-50 overview ">{{ store.SlideInfo.overview }}</p>
             </div>
             <!-- da inserire dove si preferisce -->
-            <h6>CAST</h6>
-            <div class="w-50 cast border-bottom pb-2 ">
+            <h6 v-if="store.IdInfoCard.length >= 0">CAST</h6>
+            <div class="w-50 cast border-bottom pb-2 " v-if="store.IdInfoCard.length >= 0">
                 <p class="mt-3 fs-5 overview cast-info " v-for="person in store.IdInfoCard.cast">
                     <span class="fs-4">{{ person.character }}</span> interpretato da
                     <span class="fs-3">{{ person.original_name }}</span>,
                     <br>
                 </p>
             </div>
-
         </section>
-
-
-
         <!-- IMG BACKGROUND BOTTOM -->
         <div class="box-hero-image bottom position-relative">
             <img class="images" :src="getImage"
