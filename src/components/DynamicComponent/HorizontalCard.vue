@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import { store } from "../../data/store.js";
 import { Carousel, Navigation, Slide, Pagination } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css';

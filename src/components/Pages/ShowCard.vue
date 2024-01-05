@@ -12,13 +12,13 @@
                     class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
                     @click="store.showCard = false"></i></span>
             <h1 class="mt-5">{{ store.SlideInfo.name || store.SlideInfo.title }}</h1>
-            <!-- <h6>| {{ store.IdInfoCard.genres[0].name }}</h6> -->
-            <!-- <img id="flag" :src="getFlagApi" :alt="store.IdInfoCard.original_language"> -->
+            <slide v-for="genre in  store.IdInfoCard.genres"> {{ genre.name }}  | &nbsp;</slide>
+            <img id="flag" :src="getFlagApi" :alt="store.IdInfoCard.original_language">
             <div id="star">
                 <i v-for="n in 5" :key="n" class="fa-star" :class="n <= getRate ? 'fa-solid' : 'fa-regular'"></i>
                 <span> su {{ store.SlideInfo.vote_count }} voti.</span>
             </div>
-            <p class="mt-3 fs-5 w-50 overview">{{ store.SlideInfo.overview }}</p>
+            <p class="mt-3 fs-5 w-50 overview ">{{ store.SlideInfo.overview }}</p>
         </section>
         <!-- IMG BACKGROUND BOTTOM -->
         <div class="box-hero-image bottom position-relative">
@@ -126,7 +126,8 @@ export default {
     }
 
     .overview {
-        max-height: 240px;
+        // max-height: 50%;
+        max-height: 180px;
         overflow-y: auto;
     }
 
@@ -145,14 +146,33 @@ export default {
         top: 62.5%;
 
     }
+    @media  screen and (min-width) {
+        
+    }
 
     @media screen and (min-width:1140px) {
         .box-hero-image {
             height: 70vh;
 
         }
-
+        .overview{
+            max-height: 130px;
+        }
 
     }
+    @media screen and (min-width: 600px) {
+        .overview{
+            max-height: 130px;
+        }
+
+    }
+
+    @media screen and (min-width: 400px) {
+       .overview{
+           max-height: 90px;
+       }
+
+   }
+
 }
 </style>
