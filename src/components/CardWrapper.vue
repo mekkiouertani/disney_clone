@@ -5,10 +5,10 @@
             <HeroSlider />
             <LogosCard />
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-            <HorizontalCard />
+            <HorizontalCard title="Raccomandati per te" :resultList="store.starMoviesArr" />
             <PosterCard />
-            <HorizontalCard />
-            <HorizontalCard />
+            <HorizontalCard title="Raccomandati per te" :resultList="store.starMoviesArr" />
+            <HorizontalCard title="Raccomandati per te" :resultList="store.starSeriesArr" />
             <FooterComponent />
         </section>
     </Transition>
