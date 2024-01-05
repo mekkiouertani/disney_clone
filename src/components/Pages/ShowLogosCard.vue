@@ -1,123 +1,131 @@
 <template>
     <!-- DISNEY -->
-    <section id="show-disney-card" v-if="store.selectedLogosCard === 'disney-card-logos'" class="section-card ">
-        <div class="py-5 container-fluid">
-            <!-- BUTTON -->
-            <div @click="store.selectedLogosCard = null" class="back-button">
-                <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
-                    <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
-                        @click="store.showLogosCard = false"></i>
-                </span>
+    <Transition name="slide-fade">
+        <section id="show-disney-card" v-if="store.selectedLogosCard === 'disney-card-logos'" class="section-card ">
+            <div class="py-5 container-fluid">
+                <!-- BUTTON -->
+                <div @click="store.selectedLogosCard = null" class="back-button">
+                    <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
+                        <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                            @click="store.showLogosCard = false"></i>
+                    </span>
+                </div>
+                <!--  -->
             </div>
-            <!--  -->
-        </div>
-        <div class="component-wrapper">
-            <HorizontalCard title="Film Disney" :resultList="store.disneyMoviesArr" />
-            <HorizontalCard title="Series Disney" :resultList="store.disneySeriesArr" />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-        </div>
-        <FooterComponent/>
-        
-    </section>
+            <div class="component-wrapper">
+                <HorizontalCard title="Film Disney" :resultList="store.disneyMoviesArr" />
+                <HorizontalCard title="Series Disney" :resultList="store.disneySeriesArr" />
+                <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
+            </div>
+            <FooterComponent />
+
+        </section>
+    </Transition>
     <!-- PIXAR -->
-    <section id="show-pixar-card" v-if="store.selectedLogosCard === 'pixar-card-logos'" class="section-card">
-        <div class="py-5 container-fluid">
-            <!-- BUTTON -->
-            <div @click="store.selectedLogosCard = null">
-                <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
-                    <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
-                        @click="store.showLogosCard = false"></i>
-                </span>
+    <Transition name="slide-fade">
+        <section id="show-pixar-card" v-if="store.selectedLogosCard === 'pixar-card-logos'" class="section-card">
+            <div class="py-5 container-fluid">
+                <!-- BUTTON -->
+                <div @click="store.selectedLogosCard = null">
+                    <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
+                        <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                            @click="store.showLogosCard = false"></i>
+                    </span>
+                </div>
+                <!--  -->
             </div>
-            <!--  -->
-        </div>
-        <div class="component-wrapper">
-            <HorizontalCard title="Film Pixar" :resultList="store.pixarMoviesArr" />
-            <HorizontalCard title="Series Pixar" :resultList="store.pixarSeriesArr" />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-        </div>
-        <FooterComponent/>
-
-    </section>
+            <div class="component-wrapper">
+                <HorizontalCard title="Film Pixar" :resultList="store.pixarMoviesArr" />
+                <HorizontalCard title="Series Pixar" :resultList="store.pixarSeriesArr" />
+                <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
+            </div>
+            <FooterComponent />
+        </section>
+    </Transition>
     <!-- MARVEL -->
-    <section id="show-marvel-card" v-if="store.selectedLogosCard === 'marvel-card-logos'" class="section-card">
-        <div class="py-5 container-fluid">
-            <!-- BUTTON -->
-            <div @click="store.selectedLogosCard = null" class="back-button">
-                <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
-                    <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
-                        @click="store.showLogosCard = false"></i>
-                </span>
+    <Transition name="slide-fade">
+        <section id="show-marvel-card" v-if="store.selectedLogosCard === 'marvel-card-logos'" class="section-card">
+            <div class="py-5 container-fluid">
+                <!-- BUTTON -->
+                <div @click="store.selectedLogosCard = null" class="back-button">
+                    <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
+                        <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                            @click="store.showLogosCard = false"></i>
+                    </span>
+                </div>
+                <!--  -->
             </div>
-            <!--  -->
-        </div>
-        <div class="component-wrapper">
-            <HorizontalCard title="Film Marvel" :resultList="store.marvelMoviesArr" />
-            <HorizontalCard title="Series Marvel" :resultList="store.marvelSeriesArr" />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-        </div>
-        <FooterComponent/>
-
-    </section>
+            <div class="component-wrapper">
+                <HorizontalCard title="Film Marvel" :resultList="store.marvelMoviesArr" />
+                <HorizontalCard title="Series Marvel" :resultList="store.marvelSeriesArr" />
+                <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
+            </div>
+            <FooterComponent />
+        </section>
+    </Transition>
     <!-- STAR WARS -->
-    <section id="show-starwars-card" v-if="store.selectedLogosCard === 'starwars-card-logos'" class="section-card">
-        <div class="py-5 container-fluid">
-            <!-- BUTTON -->
-            <div @click="store.selectedLogosCard = null" class="back-button">
-                <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
-                    <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
-                        @click="store.showLogosCard = false"></i>
-                </span>
+    <Transition name="slide-fade">
+        <section id="show-starwars-card" v-if="store.selectedLogosCard === 'starwars-card-logos'" class="section-card">
+            <div class="py-5 container-fluid">
+                <!-- BUTTON -->
+                <div @click="store.selectedLogosCard = null" class="back-button">
+                    <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
+                        <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                            @click="store.showLogosCard = false"></i>
+                    </span>
+                </div>
+                <!--  -->
             </div>
-            <!--  -->
-        </div>
-        <div class="component-wrapper">
-            <HorizontalCard title="Film Star Wars" :resultList="store.starwarsMoviesArr" />
-            <HorizontalCard title="Series Star Wars" :resultList="store.starwarsSeriesArr" />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-        </div>
-        <FooterComponent/>
-
-    </section>
+            <div class="component-wrapper">
+                <HorizontalCard title="Film Star Wars" :resultList="store.starwarsMoviesArr" />
+                <HorizontalCard title="Series Star Wars" :resultList="store.starwarsSeriesArr" />
+                <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
+            </div>
+            <FooterComponent />
+        </section>
+    </Transition>
     <!-- NATIONAL GEOGRAPHIC -->
-    <section id="show-national-card" v-if="store.selectedLogosCard === 'national-card-logos'" class="section-card">
-        <div class="py-5 container-fluid">
-            <!-- BUTTON -->
-            <div @click="store.selectedLogosCard = null" class="back-button">
-                <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
-                    <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
-                        @click="store.showLogosCard = false"></i>
-                </span>
+    <Transition name="slide-fade">
+        <section id="show-national-card" v-if="store.selectedLogosCard === 'national-card-logos'" class="section-card">
+            <div class="py-5 container-fluid">
+                <!-- BUTTON -->
+                <div @click="store.selectedLogosCard = null" class="back-button">
+                    <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
+                        <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                            @click="store.showLogosCard = false"></i>
+                    </span>
+                </div>
+                <!--  -->
             </div>
-            <!--  -->
-        </div>
-        <div class="component-wrapper">
-            <HorizontalCard title="Film National Geographic" :resultList="store.nationalMoviesArr" />
-            <HorizontalCard title="Series National Geographic" :resultList="store.nationalSeriesArr" />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-        </div>
-        <FooterComponent/>
-    </section>
+            <div class="component-wrapper">
+                <HorizontalCard title="Film National Geographic" :resultList="store.nationalMoviesArr" />
+                <HorizontalCard title="Series National Geographic" :resultList="store.nationalSeriesArr" />
+                <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
+            </div>
+            <FooterComponent />
+        </section>
+    </Transition>
     <!-- STAR -->
-    <section id="show-star-card" v-if="store.selectedLogosCard === 'star-card-logos'" class="section-card">
-        <div class="py-5 container-fluid">
-            <!-- BUTTON -->
-            <div @click="store.selectedLogosCard = null" class="back-button">
-                <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
-                    <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
-                        @click="store.showLogosCard = false"></i>
-                </span>
+    <Transition name="slide-fade">
+        <section id="show-star-card" v-if="store.selectedLogosCard === 'star-card-logos'" class="section-card">
+            <div class="py-5 container-fluid">
+                <!-- BUTTON -->
+                <div @click="store.selectedLogosCard = null" class="back-button">
+                    <span v-if="store.showLogosCard" @click="store.showCardWrapper = true">
+                        <i class="cp fs-1 fa-solid fa-left-long border px-2 rounded rounded-2"
+                            @click="store.showLogosCard = false"></i>
+                    </span>
+                </div>
+                <!--  -->
             </div>
-            <!--  -->
-        </div>
-        <div class="component-wrapper">
-            <HorizontalCard title="Film Star Original" :resultList="store.starMoviesArr" />
-            <HorizontalCard title="Series Star Original" :resultList="store.starSeriesArr" />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-        </div>
-        <FooterComponent/>
-    </section>
-    
+            <div class="component-wrapper">
+                <HorizontalCard title="Film Star Original" :resultList="store.starMoviesArr" />
+                <HorizontalCard title="Series Star Original" :resultList="store.starSeriesArr" />
+                <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
+            </div>
+            <FooterComponent />
+        </section>
+    </Transition>
 </template>
 
 <script>
@@ -282,6 +290,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
 .container-fluid {
     padding-top: 100px !important;
 }

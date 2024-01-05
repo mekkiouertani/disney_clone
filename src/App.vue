@@ -1,17 +1,17 @@
 <template>
-
-  <IntroComponent v-if="introisHidden === true" />
-  <section v-else-if="!introisHidden">
-    <NavbarHeader />
-    <LoaderComponent v-if="store.PopularmovieArr.length <= 0" />
-    <div v-else-if="store.PopularmovieArr.length >= 0">
-      <ShowCard v-if="store.showCard" />
-      <ShowSearch v-if="store.showSearch" />
-      <ShowLogosCard v-if="!store.showCard" />
-      <CardWrapper v-if="!store.showCard && !store.showSearch" />
-    </div>
-  </section>
-
+  <Transition name="slide-fade">
+    <IntroComponent v-if="introisHidden === true" />
+    <section v-else-if="!introisHidden">
+      <NavbarHeader />
+      <LoaderComponent v-if="store.PopularmovieArr.length <= 0" />
+      <div v-else-if="store.PopularmovieArr.length >= 0">
+        <ShowCard v-if="store.showCard" />
+        <ShowSearch v-if="store.showSearch" />
+        <ShowLogosCard v-if="!store.showCard" />
+        <CardWrapper v-if="!store.showCard && !store.showSearch" />
+      </div>
+    </section>
+  </Transition>
 </template>
 
 <script>
@@ -91,4 +91,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+</style>
