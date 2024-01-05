@@ -3,7 +3,20 @@
         <Carousel :autoplay="4000" :items-to-show="1.1" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
             id="main-slide" @click="store.showCardWrapper = false">
             <Slide v-for="slide in  store.WeekmovieArr " :key="slide" class="slide" @click="getInfoSlide(slide)">
-                <div class="carousel-slide  cp" @click="getCardId(slide.id)">
+                <div class="carousel-slide position-relative cp" @click="getCardId(slide.id)">
+                    <div class="position-absolute box-logos-image">
+                        <!-- ciclo l'array -->
+                        <div v-for="logo in store.mainArr" class=" w-50">
+                            <Transition name="slide-fade">
+                                <div v-if="logo.id === slide.id" class=" d-flex   align-items-center px-3  ">
+                                    <img style="width: 200px; height: auto;" :src="store.imgOriginalPath + logo.logo_path"
+                                        alt="">
+                                </div>
+                            </Transition>
+                        </div>
+                        <!-- {{ store.imgOriginalPath + logo.logo_path }} 
+                        <img :src="store.imgOriginalPath + logo.logo_path" alt="networks-logo" class="images"> -->
+                    </div>
                     <div class="box-image"><img :src="store.imgOriginalPath + slide.backdrop_path" :alt="slide.name"></div>
                 </div>
             </Slide>
@@ -104,7 +117,28 @@ export default {
 <style lang="scss" scoped>
 @use '../../../src/assets/style/partials/variables' as *;
 
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
+
 #hero-slider {
+
+    .box-logos-image {
+        padding-top: 40px;
+        width: 100%;
+        height: 100%;
+    }
+
     .slide {
         height: 420px;
     }

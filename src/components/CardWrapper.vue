@@ -1,4 +1,5 @@
 <template>
+
     <Transition name="slide-fade">
         <section id="card-wrapper" v-if="store.showCardWrapper">
             <HeroSlider />
@@ -11,6 +12,7 @@
             <FooterComponent />
         </section>
     </Transition>
+
 </template>
 
 <script>
@@ -28,13 +30,16 @@ export default {
         };
     },
     components: {
+
         HeroSlider,
         LogosCard,
         HorizontalCard,
         PosterCard,
         FooterComponent
     },
+
 }
+
 </script>
 
 <style lang="scss" scoped>
