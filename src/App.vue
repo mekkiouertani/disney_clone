@@ -48,25 +48,48 @@ export default {
           //populate the array  store.WeekmovieArr  for request
           store.WeekmovieArr = response.data.results;
           console.log(`week`, store.WeekmovieArr);
+          
         })
       /* ------------ */
 
     },
     getIdSlide() {
       store.WeekmovieArr.forEach((movie) => {
+        
         axios
           .get(store.BaseAPI + "movie/" + movie.id, { params: store.params })
           .then((res) => {
             console.log("response id", res.data);
-            store.mainArr.push(res.data);
+            //building the data that I want to visualize
+            if(res.data.networks){
+              let arrayAndLogo = {
+                id: res.data.id,
+                logo_path: res.data.networks.logo_path
+              }
+
+              store.mainArr.push(arrayAndLogo);
+            } else {
+              console.log('not available');
+            }
+           
           })
           .catch((error) => {
             axios
               .get(store.BaseAPI + "tv/" + movie.id, { params: this.store.params })
               .then((tvRes) => {
                 // console.log(`tv id`, tvRes.data);
-                this.store.mainArr.push(tvRes.data)
-                console.log(`series`, this.store.mainArr);
+                if(tvRes.data.networks){
+                  let arrayAndLogo = {
+                    id: tvRes.data.id,
+                    logo_path: tvRes.data.networks[0].logo_path
+                  }
+                  
+                  store.mainArr.push(arrayAndLogo);
+                } else {
+                  console.log('not available');
+                }
+                //this.store.mainArr.push(tvRes.data.networks)
+                //console.log(`series`, this.store.mainArr);
               })
               .catch((tvError) => {
                 console.error("Errore nella richiesta della serie TV:", tvError);
@@ -95,6 +118,8 @@ export default {
         }
         )
     },
+
+    
   },
   mounted() {
     setTimeout(() => {

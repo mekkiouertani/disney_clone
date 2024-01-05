@@ -5,9 +5,16 @@
             <Slide v-for="slide in  store.WeekmovieArr " :key="slide" class="slide" @click="getInfoSlide(slide)">
                 <div class="carousel-slide position-relative cp" @click="getCardId(slide.id)">
                     <div class="position-absolute box-logos-image">
-                        <!-- {{ store.mainArr.id }} -->
-                        <!-- {{ store.imgOriginalPath + logo.logo_path }} -->
-                        <!-- <img :src="store.imgOriginalPath + logo.logo_path" alt="networks-logo" class="images"> -->
+                        
+                        
+                        <!-- ciclo l'array -->
+                        <div v-for="logo in store.mainArr">
+                            <div v-if="logo.id === slide.id" class=" d-flex flex-row justify-content-center  align-items-center ">
+                                <img style="width: 300px; height: auto;" :src=" store.imgOriginalPath + logo.logo_path" alt="">
+                            </div>
+                        </div>
+                        <!-- {{ store.imgOriginalPath + logo.logo_path }} 
+                        <img :src="store.imgOriginalPath + logo.logo_path" alt="networks-logo" class="images"> -->
                     </div>
                     <div class="box-image"><img :src="store.imgOriginalPath + slide.backdrop_path" :alt="slide.name"></div>
                 </div>
@@ -112,8 +119,9 @@ export default {
 #hero-slider {
 
     .box-logos-image {
-        width: 400px;
-        padding: 10px;
+        padding-top: 40px;
+        width: 100%;
+        height: 100%;
     }
 
     .slide {
