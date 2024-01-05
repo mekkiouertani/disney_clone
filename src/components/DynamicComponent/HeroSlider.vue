@@ -3,7 +3,12 @@
         <Carousel :autoplay="4000" :items-to-show="1.1" :wrapAround="true" :transition="500" pauseAutoplayOnHover="true"
             id="main-slide" @click="store.showCardWrapper = false">
             <Slide v-for="slide in  store.WeekmovieArr " :key="slide" class="slide" @click="getInfoSlide(slide)">
-                <div class="carousel-slide  cp" @click="getCardId(slide.id)">
+                <div class="carousel-slide position-relative cp" @click="getCardId(slide.id)">
+                    <div class="position-absolute box-logos-image">
+                        <!-- {{ store.mainArr.id }} -->
+                        <!-- {{ store.imgOriginalPath + logo.logo_path }} -->
+                        <!-- <img :src="store.imgOriginalPath + logo.logo_path" alt="networks-logo" class="images"> -->
+                    </div>
                     <div class="box-image"><img :src="store.imgOriginalPath + slide.backdrop_path" :alt="slide.name"></div>
                 </div>
             </Slide>
@@ -69,7 +74,7 @@ export default {
                             console.error("Errore nella richiesta della serie TV:", tvError);
                         });
                 })
-                
+
 
         },
         /**
@@ -105,6 +110,12 @@ export default {
 @use '../../../src/assets/style/partials/variables' as *;
 
 #hero-slider {
+
+    .box-logos-image {
+        width: 400px;
+        padding: 10px;
+    }
+
     .slide {
         height: 420px;
     }
