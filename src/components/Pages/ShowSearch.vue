@@ -17,12 +17,14 @@
                 </div>
             </div>
         </div>
+        <FooterComponent/>
     </section>
 </template>
 
 <script>
 import { store } from '@/data/store'
 import axios from 'axios';
+import FooterComponent from '../partials/FooterComponent.vue';
 
 export default {
     name: "ShowSearch",
@@ -33,78 +35,71 @@ export default {
             popular: []
         };
     },
-
     methods: {
         async searchResults() {
             if (this.textInput.replace(' ', '') !== '') {
                 this.store.params.query = this.textInput;
-
                 const urlSeries = this.store.BaseAPI + this.store.endPoint.searchSeries;
                 const urlMovies = this.store.BaseAPI + this.store.endPoint.searchMovies;
-
                 try {
                     const [searchSeriesArray, searchMoviesArray] = await Promise.all([
                         axios.get(urlSeries, { params: this.store.params }),
                         axios.get(urlMovies, { params: this.store.params })
                     ]);
-
-
                     // Concatenati i risultati delle serie TV e dei film
                     this.store.SearchMovieSerie = [...searchSeriesArray.data.results, ...searchMoviesArray.data.results];
-
                     // Ripristinato il parametro query a vuoto solo se entrambe le richieste sono riuscite
                     this.store.params.query = '';
-
-                } catch (error) {
+                }
+                catch (error) {
                     console.error('Errore durante la ricerca:', error);
                 }
-            } else if (this.textInput === '') {
-                this.store.SearchMovieSerie = this.store.PopularmovieArr
+            }
+            else if (this.textInput === '') {
+                this.store.SearchMovieSerie = this.store.PopularmovieArr;
             }
         },
-
         getCardId(id) {
             axios
                 .get(store.BaseAPI + "movie/" + id, { params: this.store.params })
                 .then((res) => {
-                    this.store.IdInfoCard = res.data;
-                    console.log('movie');
-                    console.log(this.store.IdInfoCard);
-                    this.getCastById(this.store.IdInfoCard.id, true);
-                })
+                this.store.IdInfoCard = res.data;
+                console.log('movie');
+                console.log(this.store.IdInfoCard);
+                this.getCastById(this.store.IdInfoCard.id, true);
+            })
                 .catch((error) => {
-                    axios
-                        .get(store.BaseAPI + "tv/" + id, { params: this.store.params })
-                        .then((tvRes) => {
-                            // console.log(`tv id`, tvRes.data);
-                            this.store.IdInfoCard = tvRes.data;
-                            console.log('series');
-                            console.log(this.store.IdInfoCard);
-                            this.getCastById(this.store.IdInfoCard.id, false);
-
-                        })
-                        .catch((tvError) => {
-                            console.error("Errore nella richiesta della serie TV:", tvError);
-                        });
+                axios
+                    .get(store.BaseAPI + "tv/" + id, { params: this.store.params })
+                    .then((tvRes) => {
+                    // console.log(`tv id`, tvRes.data);
+                    this.store.IdInfoCard = tvRes.data;
+                    console.log('series');
+                    console.log(this.store.IdInfoCard);
+                    this.getCastById(this.store.IdInfoCard.id, false);
                 })
+                    .catch((tvError) => {
+                    console.error("Errore nella richiesta della serie TV:", tvError);
+                });
+            })
                 .finally(() => {
-                    this.store.showCard = true; //non funge
-                })
+                this.store.showCard = true; //non funge
+            });
         },
         /* oltre all'id che prendiamo con la funzione getCardId, passiamo anche l'intero oggetto in un nuovo array
-        in modo che alcuni dati possiamo prenderli dall'array generato tramite id specifico del movie, 
+        in modo che alcuni dati possiamo prenderli dall'array generato tramite id specifico del movie,
         che dall'array che restituisce 20 titoli */
         getInfoSlide(slide) {
             this.store.SlideInfo = slide;
         }
-
     },
     computed: {
         // Scambia i film popolari solo se si cerca obbietivamente qualcosa
         changeArr() {
-            return this.textInput === '' ? store.PopularmovieArr : this.store.SearchMovieSerie
+            return this.textInput === '' ? store.PopularmovieArr : this.store.SearchMovieSerie;
         }
-    }
+    },
+    components: { FooterComponent }
 }
 </script>
 
