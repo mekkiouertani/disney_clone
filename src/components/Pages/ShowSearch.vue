@@ -100,7 +100,7 @@ export default {
             this.store.SlideInfo = slide;
         },
         handleInput() {
-            // Imposta un nuovo timeout per gestire l'input dopo un certo periodo di inattività (ad esempio, 500 ms)
+            // Impostato un nuovo timeout per gestire l'input dopo un certo periodo di inattività 
             this.inputTimeout = setTimeout(() => {
             this.searchResults();
             console.log("Input utente durante la digitazione:", this.textInput);
