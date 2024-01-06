@@ -36,6 +36,10 @@ export default {
         };
     },
     methods: {
+        /**ridefinito il metodo searchResult tramite l'uso di una promis all 
+             * si riescono a prendere i dati in maniera contemporanea 
+             *si riescono appunto  a spreaddare in dati in un ARRAY trovato in store 
+             */
         async searchResults() {
             if (this.textInput.replace(' ', '') !== '') {
                 this.store.params.query = this.textInput;
@@ -46,8 +50,10 @@ export default {
                         axios.get(urlSeries, { params: this.store.params }),
                         axios.get(urlMovies, { params: this.store.params })
                     ]);
+                    
                     // Concatenati i risultati delle serie TV e dei film
                     this.store.SearchMovieSerie = [...searchSeriesArray.data.results, ...searchMoviesArray.data.results];
+                    
                     // Ripristinato il parametro query a vuoto solo se entrambe le richieste sono riuscite
                     this.store.params.query = '';
                 }
