@@ -1,7 +1,7 @@
 <template>
     <section id="show-search">
         <input type="search" placeholder="Titolo, personaggio o genere" class="new-input fw-semibold shadow"
-            v-model="textInput" @keyup.enter="searchResults">
+            v-model="textInput"  @input="handleInput" @keyup.enter="searchResults">
         <h6 class="text-light">Esplora</h6>
         <div class="container-fluid mt-5">
             <div class="row row-cols-sm-4 row-cols-lg-5  row-cols-3 gy-3" @click="">
@@ -32,7 +32,8 @@ export default {
         return {
             store,
             textInput: '',
-            popular: []
+            popular: [],
+            inputTimeout: null,
         };
     },
     methods: {
@@ -53,7 +54,7 @@ export default {
                     
                     // Concatenati i risultati delle serie TV e dei film
                     this.store.SearchMovieSerie = [...searchSeriesArray.data.results, ...searchMoviesArray.data.results];
-                    
+
                     // Ripristinato il parametro query a vuoto solo se entrambe le richieste sono riuscite
                     this.store.params.query = '';
                 }
@@ -97,7 +98,14 @@ export default {
         che dall'array che restituisce 20 titoli */
         getInfoSlide(slide) {
             this.store.SlideInfo = slide;
-        }
+        },
+        handleInput() {
+            // Imposta un nuovo timeout per gestire l'input dopo un certo periodo di inattività (ad esempio, 500 ms)
+            this.inputTimeout = setTimeout(() => {
+            this.searchResults();
+            console.log("Input utente durante la digitazione:", this.textInput);
+        }, 500);
+        },
     },
     computed: {
         // Scambia i film popolari solo se si cerca obbietivamente qualcosa
