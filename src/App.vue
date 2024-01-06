@@ -38,12 +38,6 @@ export default {
   },
   methods: {
 
-    checkInfoPopulated() {
-      if (store.IdInfoCard.id !== null) {
-        return true;
-      }
-      return false;
-    },
     /* -------------- */
     getPopularOfWeek() {
       axios
@@ -57,6 +51,10 @@ export default {
       /* ------------ */
 
     },
+    /**
+     * funzione che, dato l'id della slide corrente, 
+     * popola un nuovo array associatico chon degli oggetti contenenti il path del logo del network e l'id del film/serie tv
+     */
     getIdSlide() {
       store.WeekmovieArr.forEach((movie) => {
         
@@ -117,6 +115,9 @@ export default {
         }
         )
     },
+    /**
+     * aggiunge informazioni della crew al credits del movie o della serie tv 
+     */
     getCredits() {
       axios
         .get(store.BaseAPI + store.endPoint.creditsTV + store.movieID + store.endPoint.endCreditsTV, { params: store.params })
@@ -138,7 +139,7 @@ export default {
     setTimeout(() => {
       this.getIdSlide();
       console.log(`mainArr`, store.mainArr);
-    }, 3000);
+    }, 1000);
     // this.getIdSlide();
   },
   created() {
