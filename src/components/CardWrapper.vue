@@ -1,18 +1,16 @@
 <template>
-
     <Transition name="slide-fade">
         <section id="card-wrapper" v-if="store.showCardWrapper">
             <HeroSlider />
             <LogosCard />
             <HorizontalCard title="Raccomandati per te" :resultList="store.PopularmovieArr" />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.starMoviesArr" />
+            <HorizontalCard title="Potrebbero Piacerti" :resultList="store.starMoviesArr" />
             <PosterCard />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.starMoviesArr" />
-            <HorizontalCard title="Raccomandati per te" :resultList="store.starSeriesArr" />
+            <HorizontalCard title="Movies Star Original" :resultList="store.starMoviesArr" />
+            <HorizontalCard title="Series Star Original" :resultList="store.starSeriesArr" />
             <FooterComponent />
         </section>
     </Transition>
-
 </template>
 
 <script>
